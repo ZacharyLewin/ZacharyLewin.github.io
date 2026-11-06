@@ -144,6 +144,10 @@ nav .links a.on{color:var(--accent)}
 .lb{position:fixed;inset:0;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:20px}
 .lb.on{display:flex}.lb img{max-height:94vh;max-width:94vw;box-shadow:0 10px 40px rgba(0,0,0,.5)}
 @media(max-width:900px){.nbgrid,.wk{grid-template-columns:1fr;gap:18px}}
+.outside{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 10px;max-width:520px}
+.outside figure{margin:0}.outside img{width:100%;aspect-ratio:4/5;object-fit:cover;cursor:zoom-in;display:block}
+.outside figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+.about p.off{font-family:var(--sans);font-size:14.5px;line-height:1.55;color:var(--ink2);max-width:520px}
 </style>
 </head>
 <body>
@@ -340,6 +344,11 @@ nav .links a.on{color:var(--accent)}
     <div>
       <p>I grew up in London. At school I studied Maths and Classics alongside Design and Engineering. Now, I study Mathematics and Philosophy at McGill.</p>
       <p>I want to create, I want to build, and I want to connect to other people.</p>
+      <div class="outside">
+        <figure><img src="assets/kili.jpg" data-full="assets/kili.jpg" alt="Zachary at the summit sign on Uhuru Peak, Kilimanjaro" loading="lazy"><figcaption>Uhuru Peak, Kilimanjaro, 5,895 m · 2023</figcaption></figure>
+        <figure><img src="assets/ferrata.jpg" data-full="assets/ferrata.jpg" alt="Zachary crossing a wire bridge on a via ferrata between two rock faces" loading="lazy"><figcaption>On a via ferrata</figcaption></figure>
+      </div>
+      <p class="off">Away from the desk I’m on a wall or a mountain: competitive bouldering in Montréal, Kilimanjaro in 2023, the Zugspitze before that.</p>
     </div>
     <dl class="facts">
       <dt>Education</dt><dd>BA Mathematics &amp; Philosophy, McGill University, 2027</dd>
