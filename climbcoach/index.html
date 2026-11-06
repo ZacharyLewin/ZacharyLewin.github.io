@@ -51,6 +51,17 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:cent
 .lb.on{display:flex}.lb img{max-height:94vh;max-width:94vw;box-shadow:0 10px 40px rgba(0,0,0,.5)}
 @media(max-width:820px){body{font-size:18px}.seed{grid-template-columns:1fr}.flow{grid-template-columns:1fr;gap:6px}.flow .s:not(:last-child):after{content:"↓";right:auto;left:18px;top:auto;bottom:-14px}
   .soon .box{grid-template-columns:1fr;padding:34px 24px}}
+.seed figure.photo{transform:none;padding:0;background:none;box-shadow:none}
+.seed figure.photo img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.deco-wrap{position:relative}
+.deco{position:absolute;right:-300px;top:-10px;width:250px;margin:0;transform:rotate(4deg);background:#fff;padding:10px 10px 30px;box-shadow:0 10px 30px rgba(0,0,0,.12);opacity:.92;transition:transform .3s,opacity .3s}
+.deco:hover{transform:rotate(1deg) scale(1.03);opacity:1}
+.deco:before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(240,226,190,.75);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.deco img{width:100%;cursor:zoom-in;filter:contrast(1.05)}
+.deco span{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:"Bradley Hand","Segoe Print","Comic Sans MS",cursive;font-size:13px;color:#555}
+@media(max-width:1300px){.deco{right:-250px;width:210px}}
+@media(max-width:1180px){.deco{position:relative;right:auto;top:auto;float:right;width:170px;margin:4px 0 16px 22px}}
+@media(max-width:600px){.deco{width:130px;margin:4px 0 12px 16px;padding-bottom:10px}.deco span{display:none}}
 </style>
 </head>
 <body>
@@ -64,11 +75,12 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:cent
 </header>
 
 <div class="seed">
-  <figure><img src="../assets/nb-climb.jpg" alt="Notebook page dated 17 September 2025: a black-blue problem at Allez Up Mile End drawn hold by hold, with the beta written out" data-full="../assets/nb-climb.jpg"><div class="cap">Notebook, 17 September 2025. Allez Up, Mile End.</div></figure>
-  <blockquote>“I’ve always loved climbing, a sense of freedom that is rare to find elsewhere for me. I now climb competitively in Montréal, and wanted something that allowed me to excel on my own terms…”<small>The beta for a black-blue problem, written out by hand so I could climb it again.</small></blockquote>
+  <figure class="photo"><img src="../assets/climb-comp.jpg" alt="Zachary at the Allez Up Verdun Scramble bouldering competition" data-full="../assets/climb-comp.jpg"><div class="cap">Allez Up Verdun Scramble, with Arc’teryx.</div></figure>
+  <blockquote>“I’ve always loved climbing, a sense of freedom that is rare to find elsewhere for me. I now climb competitively in Montréal, and wanted something that allowed me to excel on my own terms…”</blockquote>
 </div>
 
-<div class="prose">
+<div class="prose deco-wrap">
+  <figure class="deco"><img src="../assets/nb-climb.jpg" alt="Notebook page dated 17 September 2025: a black-blue problem at Allez Up Mile End drawn hold by hold, with the beta written out" data-full="../assets/nb-climb.jpg"><span>17.09.2025 · Allez Up, Mile End</span></figure>
   <p>This is how a lot of climbers get better: watch, guess, write it down, try again. Filming yourself on a phone helps a little, but the footage tells you nothing on its own, and a good coach is expensive and rare in most gyms.</p>
   <p>ClimbCoach is the attempt to make that page write itself. The long-term idea is a camera built into the LED training boards climbers already use. You pick a problem in the board’s app, climb it, and get back a score, a replay with your movement drawn over it, and a few specific tips, each pinned to the moment in the video it refers to.</p>
   <p>A camera fixed to the wall has an advantage a phone never will: it knows exactly which holds are on the problem, the angle of the board and where it is looking from. Every attempt arrives already labelled with the problem, its grade and whether it was sent.</p>
