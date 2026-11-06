@@ -53,6 +53,7 @@ section.first{border-top:0;padding-top:0}
 .board{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:start}
 .board .hero{background:var(--stone);aspect-ratio:4/3;overflow:hidden}
 .board .hero img{width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.rockerf .hero img{object-fit:contain}
 .thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
 .thumbs button{padding:0;border:2px solid transparent;background:var(--stone);cursor:pointer;aspect-ratio:4/3;overflow:hidden}
 .thumbs button.on{border-color:var(--ink)}
@@ -160,7 +161,7 @@ nav .links a.on{color:var(--accent)}
 
 <div class="menu" role="tablist" aria-label="Sections">
   <a class="mbtn" href="#stories" data-p="stories"><span class="n">01</span><span class="t">Stories</span><span class="s">Two data stories, three essays and a novel</span></a>
-  <a class="mbtn" href="#design" data-p="design"><span class="n">02</span><span class="t">Design &amp; objects</span><span class="s">A concrete backgammon board, furniture, an ashtray</span></a>
+  <a class="mbtn" href="#design" data-p="design"><span class="n">02</span><span class="t">Design &amp; objects</span><span class="s">A backgammon board, a rocking chair, furniture and sketches</span></a>
   <a class="mbtn" href="#also" data-p="also"><span class="n">03</span><span class="t">Other work</span><span class="s">An app, a climbing coach and an identity</span></a>
   <a class="mbtn" href="#about" data-p="about"><span class="n">04</span><span class="t">About</span><span class="s">Who I am and how to reach me</span></a>
 </div>
@@ -258,6 +259,31 @@ nav .links a.on{color:var(--accent)}
     </div>
   </div>
 
+  <div class="board rockerf" style="margin-top:56px;padding-top:44px;border-top:1px solid var(--rule)">
+    <div>
+      <div class="hero" style="background:#f4f3f0"><img id="rimg" src="assets/rocker-hero.jpg" alt="The Right Angled Rocker: a stainless-steel L-shaped rocking chair with leather seat and back"></div>
+      <div class="thumbs rthumbs">
+        <button class="on" data-src="assets/rocker-hero.jpg" data-alt="The chair"><img src="assets/rocker-hero.jpg" alt="Chair" loading="lazy"></button>
+        <button data-src="assets/rocker-exploded.jpg" data-alt="Taken apart: one sheet, two side panels, pads, truss"><img src="assets/rocker-exploded.jpg" alt="Exploded" loading="lazy"></button>
+        <button data-src="assets/rocker-rocksit.jpg" data-alt="Rocked back, with a seated adult for scale"><img src="assets/rocker-rocksit.jpg" alt="Rocking" loading="lazy"></button>
+        <button data-src="assets/rocker-sit.jpg" data-alt="With a seated adult for scale"><img src="assets/rocker-sit.jpg" alt="Sitter" loading="lazy"></button>
+        <button data-src="assets/rocker-seat.jpg" data-alt="The grooved seat and the cradle back"><img src="assets/rocker-seat.jpg" alt="Seat" loading="lazy"></button>
+      </div>
+    </div>
+    <div>
+      <p class="kick">Furniture · Interactive 3-D</p>
+      <h2 style="font-size:clamp(28px,3vw,36px);line-height:1.08;margin:0 0 12px">The Right Angled Rocker</h2>
+      <p class="dek">A rocking chair pressed from one sheet of stainless steel, with a soft seat grooved for the body and a back you sink into.</p>
+      <p style="font-size:16.5px;color:var(--ink2);margin:0">From the side it is an L of three 45 cm squares, every angle a right angle. But the base is one long, shallow arc, so it rocks, and everywhere your body touches is soft: a channel under each thigh, and a cupped back with a swell for the small of your back.</p>
+      <dl class="spec">
+        <div><dt>Size</dt><dd>60 × 90 × 90 cm</dd></div>
+        <div><dt>Seat</dt><dd>45 cm high, 43 cm deep</dd></div>
+        <div><dt>Materials</dt><dd>Stainless steel, leather, rubber</dd></div>
+      </dl>
+      <a class="btn" href="rocker/">Take it apart in 3-D →</a>
+    </div>
+  </div>
+
   <div class="objects">
     <div class="obj">
       <div class="v"><video src="assets/nightstand.mp4" poster="assets/nightstand.jpg" muted loop playsinline preload="none" aria-label="CAD model of the nightstand"></video></div>
@@ -352,10 +378,16 @@ openPanel(location.hash.slice(1)||null,!!location.hash);
 const lb=document.getElementById('lb');
 document.querySelectorAll('[data-full]').forEach(i=>i.addEventListener('click',()=>{const im=lb.querySelector('img');im.src=i.dataset.full;im.alt=i.alt;lb.classList.add('on')}));
 lb.addEventListener('click',()=>lb.classList.remove('on'));addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+// rocker gallery
+const rbig=document.getElementById('rimg');
+document.querySelectorAll('.rthumbs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.rthumbs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  rbig.style.opacity=0;setTimeout(()=>{rbig.src=b.dataset.src;rbig.alt=b.dataset.alt;rbig.onload=()=>rbig.style.opacity=1},180);
+}));
 // board gallery
 const big=document.getElementById('bimg');
-document.querySelectorAll('.thumbs button').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.thumbs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+document.querySelectorAll('.thumbs:not(.rthumbs) button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.thumbs:not(.rthumbs) button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
   big.style.opacity=0;setTimeout(()=>{big.src=b.dataset.src;big.alt=b.dataset.alt;big.onload=()=>big.style.opacity=1},180);
 }));
 // play CAD videos only while on screen
