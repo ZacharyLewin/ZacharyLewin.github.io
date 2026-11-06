@@ -153,6 +153,12 @@ nav .links a.on{color:var(--accent)}
 .pin-note{margin:6px 0 0;width:180px;transform:rotate(-2deg)}
 .pin-note img{width:100%;cursor:zoom-in;box-shadow:0 4px 14px rgba(0,0,0,.1)}
 .pin-note figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px;transform:rotate(2deg)}
+.bloomwrap .demo{margin:0}.bloomwrap .demo video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+.bloomwrap .demo figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.pair.two{grid-template-columns:1fr 1fr;margin-top:14px;align-items:start}
+.pair.two img{aspect-ratio:4/3;object-fit:cover}
+.pair.cc img{box-shadow:none;background:#faf3e7;cursor:pointer;max-height:380px;width:100%;object-fit:contain;transition:transform .3s}
+.pair.cc a:hover img{transform:translateY(-3px)}
 </style>
 </head>
 <body>
@@ -330,16 +336,18 @@ nav .links a.on{color:var(--accent)}
       <div class="txt"><p class="meta">Chief product officer · In beta</p><h3>SquashIt!</h3><p>A social app that settles disputes: post your side, strangers vote, and the dispute is squashed when the verdict is clear. I led a team of designers and engineers through the first build and beta testing. The Discover page started as a sketch in my notebook, next to “Squabbles”, reaction icons that sit above the keyboard in the comments.</p></div>
     </article>
     <article class="wk">
-      <div class="pair one"><figure><img src="assets/nb-climb-t.jpg" data-full="assets/nb-climb.jpg" alt="Notebook page with a climbing problem drawn hold by hold" loading="lazy"><figcaption>Allez Up, Mile End, 17 September 2025</figcaption></figure></div>
+      <div class="pair one cc"><figure><a href="climbcoach/"><img src="assets/climbcoach-mark.jpg" alt="ClimbCoach illustration: a figure climbing a ladder up a green boulder" loading="lazy"></a></figure></div>
       <div class="txt"><p class="meta">Project · In progress</p><h3>ClimbCoach</h3><p>A camera on the climbing wall that watches a bouldering attempt, scores it out of 100 and tells you what to work on, each tip pinned to a moment in the replay. Pose tracking and the first metrics work; the learned score is next.</p><a class="btn" href="climbcoach/">See the project →</a></div>
     </article>
     <article class="wk">
-      <div class="pair bloom">
-        <figure class="phone"><video src="assets/bloomscroll.mp4" poster="assets/bloomscroll.jpg" muted loop playsinline preload="none" aria-label="Screen recording of Bloomscroll: adding a course, uploading lecture files, and the knowledge tree"></video><figcaption>The app</figcaption></figure>
-        <figure><img src="assets/bloomscroll-demo.jpg" data-full="assets/bloomscroll-demo.jpg" alt="Zachary presenting Bloomscroll at the McHacks 13 demo" loading="lazy"><figcaption>Presenting at the McHacks 13 demo</figcaption></figure>
+      <div class="bloomwrap">
+        <figure class="demo"><video src="assets/bloomscroll-demo.mp4" poster="assets/bloomscroll-demo-poster.jpg" controls playsinline preload="metadata" aria-label="Bloomscroll: the demo video submitted to McHacks 13"></video><figcaption>The demo we submitted to McHacks 13 · 55 s, with sound</figcaption></figure>
+        <div class="pair two">
+          <figure><img src="assets/bloomscroll-demo.jpg" data-full="assets/bloomscroll-demo.jpg" alt="Zachary presenting Bloomscroll at the McHacks 13 demo" loading="lazy"><figcaption>Presenting at the demo</figcaption></figure>
+          <figure><img src="assets/nb-bloomscroll-t.jpg" data-full="assets/nb-bloomscroll.jpg" alt="Notebook spread: notes for the Bloomscroll pitch video, with a drawing of a flowering stem" loading="lazy"><figcaption>The pitch, in my notebook</figcaption></figure>
+        </div>
       </div>
       <div class="txt"><p class="meta">McHacks 13 · 3rd of 160 · two prizes</p><h3>Bloomscroll</h3><p>Design engineer on an app that lets students upload their own course material and learn it by scrolling. Each course grows into a knowledge tree as you study. The pitch, from my notes: “Let’s put an end to the doom, and let’s begin to Bloom.”</p>
-        <figure class="pin-note"><img src="assets/nb-bloomscroll-t.jpg" data-full="assets/nb-bloomscroll.jpg" alt="Notebook spread: notes for the Bloomscroll pitch video, with a drawing of a flowering stem" loading="lazy"><figcaption>The pitch, in my notebook</figcaption></figure>
       </div>
     </article>
     <article class="wk textonly">
@@ -385,7 +393,7 @@ function openPanel(id,scroll){
   panels.forEach(p=>p.classList.toggle('show',p.id===id));
   document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('on',a.dataset.p===id));
   document.getElementById('hint').style.display=id?'none':'block';
-  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.pair video').forEach(v=>{if(id!=='also')v.pause()});
+  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.bloomwrap video').forEach(v=>{if(id!=='also')v.pause()});
   if(id&&scroll){const el=document.getElementById(id);setTimeout(()=>window.scrollTo({top:el.getBoundingClientRect().top+scrollY-12,behavior:'smooth'}),30)}
 }
 document.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.p;
@@ -412,7 +420,7 @@ document.querySelectorAll('.thumbs:not(.rthumbs) button').forEach(b=>b.addEventL
 }));
 // play CAD videos only while on screen
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else v.pause()}),{threshold:.35});
-document.querySelectorAll('.obj video, .pair video').forEach(v=>io.observe(v));
+document.querySelectorAll('.obj video').forEach(v=>io.observe(v));
 </script>
 </body>
 </html>
