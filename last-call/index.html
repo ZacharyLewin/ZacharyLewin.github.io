@@ -63,7 +63,7 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:cent
 .tip{position:fixed;pointer-events:none;background:#111;color:#fff;font-family:var(--sans);font-size:13px;padding:6px 9px;border-radius:3px;opacity:0;transition:opacity .15s;z-index:10;max-width:240px}
 </style>
 </head>
-<body><a href="../" style="position:fixed;top:12px;left:12px;z-index:9999;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.06em;background:#111;color:#fff;text-decoration:none;padding:7px 10px;line-height:1;box-shadow:0 1px 6px rgba(0,0,0,.18)">ZDL <span style="font-weight:500;opacity:.75">· All work</span></a>
+<body><a id="zdl-back" href="../" style="transition:opacity .25s,transform .25s;position:fixed;top:12px;left:12px;z-index:9999;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.06em;background:#111;color:#fff;text-decoration:none;padding:7px 10px;line-height:1;box-shadow:0 1px 6px rgba(0,0,0,.18)">ZDL <span style="font-weight:500;opacity:.75">· All work</span></a>
 <header class="top">
   <div class="kicker">Montréal · Data</div>
   <h1>Last Call, by Bike</h1>
@@ -354,5 +354,5 @@ addEventListener('scroll',()=>{if(ticking) return; ticking=true; requestAnimatio
 function all(){drawTide();drawCampus();drawCurve();drawNights();drawMap()}
 all(); setScene(activeScene(),true); let rt; addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(all,200)});
 </script>
-</body>
+<script>(function(){var b=document.getElementById("zdl-back");function u(){var h=scrollY>160;b.style.opacity=h?0:1;b.style.pointerEvents=h?"none":"auto";b.style.transform=h?"translateY(-8px)":"none"}addEventListener("scroll",u,{passive:true});u()})();</script></body>
 </html>

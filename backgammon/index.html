@@ -43,7 +43,7 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:cent
 @media(max-width:900px){.stage{grid-template-columns:1fr}.notes{max-height:none}}
 </style>
 </head>
-<body><a href="../" style="position:fixed;top:12px;left:12px;z-index:9999;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.06em;background:#111;color:#fff;text-decoration:none;padding:7px 10px;line-height:1;box-shadow:0 1px 6px rgba(0,0,0,.18)">ZDL <span style="font-weight:500;opacity:.75">· All work</span></a>
+<body><a id="zdl-back" href="../" style="transition:opacity .25s,transform .25s;position:fixed;top:12px;left:12px;z-index:9999;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.06em;background:#111;color:#fff;text-decoration:none;padding:7px 10px;line-height:1;box-shadow:0 1px 6px rgba(0,0,0,.18)">ZDL <span style="font-weight:500;opacity:.75">· All work</span></a>
 <header>
   <div class="kicker">Design · Object</div>
   <h1>A Folding Backgammon Board</h1>
@@ -4686,5 +4686,5 @@ three/build/three.module.js:
    *)
 */
 </script>
-</body>
+<script>(function(){var b=document.getElementById("zdl-back");function u(){var h=scrollY>160;b.style.opacity=h?0:1;b.style.pointerEvents=h?"none":"auto";b.style.transform=h?"translateY(-8px)":"none"}addEventListener("scroll",u,{passive:true});u()})();</script></body>
 </html>
