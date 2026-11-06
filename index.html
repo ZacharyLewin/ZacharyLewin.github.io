@@ -80,13 +80,32 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 
 @media(max-width:600px){body{font-size:17px}.wrap{padding:0 18px}nav .links{gap:14px;font-size:13px}.logo{font-size:28px}
   .objects,.also{grid-template-columns:1fr}.intro{padding:40px 0 36px}.thumbs{grid-template-columns:repeat(5,1fr)}
   .btn.ghost{margin:8px 0 0}}
+
+.menu{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);margin:0 0 8px}
+.mbtn{display:flex;flex-direction:column;gap:6px;padding:22px 20px 24px;text-decoration:none;border-right:1px solid var(--rule);transition:background .2s,color .2s;position:relative}
+.mbtn:last-child{border-right:0}
+.mbtn .n{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.mbtn .t{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.1}
+.mbtn .s{font-family:var(--sans);font-size:13.5px;color:var(--ink2);line-height:1.4}
+.mbtn:after{content:"→";position:absolute;right:18px;top:20px;font-family:var(--sans);font-size:18px;transition:transform .2s}
+.mbtn:hover{background:#f6f5f2}.mbtn:hover:after{transform:translateX(4px)}
+.mbtn.on{background:var(--ink);color:#fff}.mbtn.on .n,.mbtn.on .s{color:#cfcfcf}.mbtn.on:after{content:"↓"}
+.panel{display:none;border-top:0;animation:fade .35s ease}
+.panel.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.closep{font-family:var(--sans);font-size:13px;font-weight:700;background:none;border:0;padding:0;cursor:pointer;color:var(--muted);float:right;margin-top:-2px}
+.closep:hover{color:var(--ink)}
+.hintline{font-family:var(--sans);font-size:13px;color:var(--muted);margin:14px 0 40px}
+nav .links a.on{color:var(--accent)}
+@media(max-width:900px){.menu{grid-template-columns:1fr 1fr}.mbtn:nth-child(2){border-right:0}.mbtn:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
+@media(max-width:600px){.menu{grid-template-columns:1fr}.mbtn{border-right:0;border-bottom:1px solid var(--rule);padding:18px 4px}.mbtn .t{font-size:21px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <nav>
   <a class="logo" href="./">ZDL<span>Zachary D. Lewin</span></a>
-  <div class="links"><a href="#stories">Stories</a><a href="#design">Design</a><a href="#about">About</a><a href="mailto:zacdlewin@gmail.com">Contact</a></div>
+  <div class="links"><a href="#stories" data-p="stories">Stories</a><a href="#design" data-p="design">Design</a><a href="#about" data-p="about">About</a><a href="mailto:zacdlewin@gmail.com">Contact</a></div>
 </nav>
 
 <div class="intro">
@@ -94,8 +113,16 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 
   <h1>I study <b>mathematics and philosophy</b> at McGill and make things people can look at: <b>data stories, interactive graphics and objects</b>. I like starting from something everyone in a city recognises, and showing them what is hiding in it.</h1>
 </div>
 
-<section id="stories" class="first">
-  <p class="label">Stories</p>
+<div class="menu" role="tablist" aria-label="Sections">
+  <a class="mbtn" href="#stories" data-p="stories"><span class="n">01</span><span class="t">Stories</span><span class="s">Two data stories about Montréal</span></a>
+  <a class="mbtn" href="#design" data-p="design"><span class="n">02</span><span class="t">Design &amp; objects</span><span class="s">A concrete backgammon board, furniture, an ashtray</span></a>
+  <a class="mbtn" href="#also" data-p="also"><span class="n">03</span><span class="t">Other work</span><span class="s">Apps, writing and an identity</span></a>
+  <a class="mbtn" href="#about" data-p="about"><span class="n">04</span><span class="t">About</span><span class="s">Who I am and how to reach me</span></a>
+</div>
+<p class="hintline" id="hint">Choose a section to open it.</p>
+
+<section id="stories" class="panel">
+  <p class="label">Stories <button class="closep" data-close>Close ×</button></p>
 
   <article class="story">
     <div class="imgs">
@@ -128,8 +155,8 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 
   </article>
 </section>
 
-<section id="design">
-  <p class="label">Design &amp; objects</p>
+<section id="design" class="panel">
+  <p class="label">Design &amp; objects <button class="closep" data-close>Close ×</button></p>
   <div class="board">
     <div>
       <div class="hero"><img id="bimg" src="assets/board-open.jpg" alt="Concrete backgammon board, open, with shells as checkers"></div>
@@ -171,8 +198,8 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 
   </div>
 </section>
 
-<section>
-  <p class="label">Also</p>
+<section id="also" class="panel">
+  <p class="label">Other work <button class="closep" data-close>Close ×</button></p>
   <div class="also">
     <div><p class="meta">McHacks 13 · 3rd of 160</p><h3>Bloomscroll</h3><p>Design engineer on an app that lets students upload their own course material and learn it by scrolling. It won two prizes.</p></div>
     <div><p class="meta">Chief product officer</p><h3>SquashIt!</h3><p>A social app that settles disputes. I led a team of designers and engineers through the first build and beta testing.</p></div>
@@ -181,8 +208,8 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 
   </div>
 </section>
 
-<section id="about">
-  <p class="label">About</p>
+<section id="about" class="panel">
+  <p class="label">About <button class="closep" data-close>Close ×</button></p>
   <div class="about">
     <div>
       <p>I grew up in London between languages: French with my Belgian mother, some German with my father, English everywhere else. At school I studied design and engineering and built a wearable tool for learning sign language, which won the Design &amp; Technology award. Now I study mathematics and philosophy at McGill.</p>
@@ -201,6 +228,22 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 
 <footer><span>ZDL · Zachary D. Lewin · Montréal</span><span>Available Summer 2027, Fall 2027, and full-time after that</span></footer>
 </div>
 <script>
+
+// sections open one at a time, from the buttons or the URL hash
+const panels=[...document.querySelectorAll('.panel')];
+function openPanel(id,scroll){
+  panels.forEach(p=>p.classList.toggle('show',p.id===id));
+  document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('on',a.dataset.p===id));
+  document.getElementById('hint').style.display=id?'none':'block';
+  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});
+  if(id&&scroll){const el=document.getElementById(id);setTimeout(()=>window.scrollTo({top:el.getBoundingClientRect().top+scrollY-12,behavior:'smooth'}),30)}
+}
+document.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.p;
+  const already=document.getElementById(id).classList.contains('show');
+  if(already){history.pushState(null,'',location.pathname);openPanel(null)}else{history.pushState(null,'','#'+id);openPanel(id,true)}}));
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>{history.pushState(null,'',location.pathname);openPanel(null);window.scrollTo({top:0,behavior:'smooth'})}));
+addEventListener('popstate',()=>openPanel(location.hash.slice(1)||null));
+openPanel(location.hash.slice(1)||null,!!location.hash);
 // board gallery
 const big=document.getElementById('bimg');
 document.querySelectorAll('.thumbs button').forEach(b=>b.addEventListener('click',()=>{
