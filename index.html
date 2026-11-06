@@ -120,6 +120,29 @@ nav .links a.on{color:var(--accent)}
 .contact a{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:15px;letter-spacing:.01em;text-decoration:none;color:var(--ink);display:inline-flex;align-items:baseline;gap:14px;width:max-content;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
 .contact a span{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);min-width:72px}
 .contact a:hover{color:var(--accent);border-color:var(--accent)}
+
+.nbrow{margin-top:48px;border-top:1px solid var(--rule);padding-top:36px}
+.nbgrid{display:grid;grid-template-columns:1.35fr 1fr;gap:32px;align-items:start}
+.nb{margin:0}.nb img{width:100%;background:#f3f1ec;cursor:zoom-in;box-shadow:0 4px 18px rgba(0,0,0,.08);transition:transform .25s}
+.nb img:hover{transform:translateY(-3px)}
+.nb figcaption,.wk .txt{font-size:16px;line-height:1.5;color:var(--ink2);margin-top:12px}
+.nb figcaption b{display:block;font-family:var(--sans);font-size:17px;color:var(--ink);margin:2px 0 4px}
+.meta{font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 6px;display:block}
+.work{display:flex;flex-direction:column}
+.wk{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center;padding:30px 0;border-bottom:1px solid var(--rule)}
+.wk:first-child{padding-top:4px}.wk:last-child{border-bottom:0}
+.wk.textonly{grid-template-columns:1fr}
+.wk h3{font-family:var(--serif);font-size:30px;margin:0 0 10px;color:var(--ink)}
+.wk .txt p{margin:0 0 14px}
+.pair{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;align-items:end}
+.pair.one{grid-template-columns:1fr}
+.pair figure{margin:0}.pair img{width:100%;cursor:zoom-in;background:#f3f1ec;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.pair .phone img{border-radius:18px;border:6px solid #111}
+.pair figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.pair.one img{max-height:420px;object-fit:contain;width:auto;max-width:100%}
+.lb{position:fixed;inset:0;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:20px}
+.lb.on{display:flex}.lb img{max-height:94vh;max-width:94vw;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+@media(max-width:900px){.nbgrid,.wk{grid-template-columns:1fr;gap:18px}}
 </style>
 </head>
 <body>
@@ -138,7 +161,7 @@ nav .links a.on{color:var(--accent)}
 <div class="menu" role="tablist" aria-label="Sections">
   <a class="mbtn" href="#stories" data-p="stories"><span class="n">01</span><span class="t">Stories</span><span class="s">Two data stories, three essays and a novel</span></a>
   <a class="mbtn" href="#design" data-p="design"><span class="n">02</span><span class="t">Design &amp; objects</span><span class="s">A concrete backgammon board, furniture, an ashtray</span></a>
-  <a class="mbtn" href="#also" data-p="also"><span class="n">03</span><span class="t">Other work</span><span class="s">Apps and an identity</span></a>
+  <a class="mbtn" href="#also" data-p="also"><span class="n">03</span><span class="t">Other work</span><span class="s">An app, a climbing coach and an identity</span></a>
   <a class="mbtn" href="#about" data-p="about"><span class="n">04</span><span class="t">About</span><span class="s">Who I am and how to reach me</span></a>
 </div>
 <p class="hintline" id="hint">Choose a section to open it.</p>
@@ -249,14 +272,39 @@ nav .links a.on{color:var(--accent)}
       <p>A wooden ashtray, modelled in Fusion 360.</p>
     </div>
   </div>
+
+  <div class="nbrow">
+    <p class="label" style="margin:0 0 18px">From the notebook</p>
+    <div class="nbgrid">
+      <figure class="nb"><img src="assets/nb-matchbox-t.jpg" data-full="assets/nb-matchbox.jpg" alt="Notebook spread: the Matchbox Backgammon Board, a scaled-up matchbox that slides open to reveal the board, with a case that flips over into a stand" loading="lazy">
+        <figcaption><span class="meta">Sketch · 2026</span><b>The Matchbox Backgammon Board</b>A scaled-up matchbox: the board slides out of its sleeve, the side keeps a working striker strip, and the case flips over to become a small stand. Strikingly simple.</figcaption></figure>
+      <figure class="nb"><img src="assets/nb-babyphone-t.jpg" data-full="assets/nb-babyphone.jpg" alt="Notebook page: the Baby Phone, drawn from the front, side, back and above" loading="lazy">
+        <figcaption><span class="meta">Concept</span><b>The Baby Phone</b>A first phone for small children: call your parents, take pictures, play music, check the weather. Drawn from four sides, in five colours, “patent pending”.</figcaption></figure>
+    </div>
+  </div>
 </section>
 
 <section id="also" class="panel">
   <p class="label">Other work <button class="closep" data-close>Close ×</button></p>
-  <div class="also">
-    <div><p class="meta">McHacks 13 · 3rd of 160</p><h3>Bloomscroll</h3><p>Design engineer on an app that lets students upload their own course material and learn it by scrolling. It won two prizes.</p></div>
-    <div><p class="meta">Chief product officer</p><h3>SquashIt!</h3><p>A social app that settles disputes. I led a team of designers and engineers through the first build and beta testing.</p></div>
-    <div><p class="meta">Identity</p><h3>Clark Security</h3><p>A constructivist badge, after El Lissitzky, for our building on Rue Clark, carried onto matchboxes, caps and quarter-zips and projected at a party.</p></div>
+  <div class="work">
+    <article class="wk">
+      <div class="pair">
+        <figure><img src="assets/nb-squabbles-t.jpg" data-full="assets/nb-squabbles.jpg" alt="Notebook spread: sketches of the SquashIt Discover page and the Squabbles comment flow" loading="lazy"><figcaption>The sketch</figcaption></figure>
+        <figure class="phone"><img src="assets/squashit-discover.jpg" data-full="assets/squashit-discover.jpg" alt="The SquashIt Discover page as built" loading="lazy"><figcaption>The app</figcaption></figure>
+      </div>
+      <div class="txt"><p class="meta">Chief product officer · In beta</p><h3>SquashIt!</h3><p>A social app that settles disputes: post your side, strangers vote, and the dispute is squashed when the verdict is clear. I led a team of designers and engineers through the first build and beta testing. The Discover page started as a sketch in my notebook, next to “Squabbles”, reaction icons that sit above the keyboard in the comments.</p></div>
+    </article>
+    <article class="wk">
+      <div class="pair one"><figure><img src="assets/nb-climb-t.jpg" data-full="assets/nb-climb.jpg" alt="Notebook page with a climbing problem drawn hold by hold" loading="lazy"><figcaption>Allez Up, Mile End, 17 September 2025</figcaption></figure></div>
+      <div class="txt"><p class="meta">Project · In progress</p><h3>ClimbCoach</h3><p>A camera on the climbing wall that watches a bouldering attempt, scores it out of 100 and tells you what to work on, each tip pinned to a moment in the replay. Pose tracking and the first metrics work; the learned score is next.</p><a class="btn" href="climbcoach/">See the project →</a></div>
+    </article>
+    <article class="wk">
+      <div class="pair one"><figure><img src="assets/nb-bloomscroll-t.jpg" data-full="assets/nb-bloomscroll.jpg" alt="Notebook spread: notes for the Bloomscroll pitch video, with a drawing of a flowering stem" loading="lazy"><figcaption>Notes for the pitch video</figcaption></figure></div>
+      <div class="txt"><p class="meta">McHacks 13 · 3rd of 160 · two prizes</p><h3>Bloomscroll</h3><p>Design engineer on an app that lets students upload their own course material and learn it by scrolling. The pitch, from my notes: “Let’s put an end to the doom, and let’s begin to Bloom.”</p></div>
+    </article>
+    <article class="wk textonly">
+      <div class="txt"><p class="meta">Identity</p><h3>Clark Security</h3><p>A constructivist badge, after El Lissitzky, for our building on Rue Clark, carried onto matchboxes, caps and quarter-zips and projected at a party.</p></div>
+    </article>
   </div>
 </section>
 
@@ -282,6 +330,7 @@ nav .links a.on{color:var(--accent)}
 
 <footer><span>ZDL · Zachary D. Lewin · Montréal</span><span>Available Summer 2027, Fall 2027, and full-time after that</span></footer>
 </div>
+<div class="lb" id="lb"><img alt=""></div>
 <script>
 
 // sections open one at a time, from the buttons or the URL hash
@@ -299,6 +348,10 @@ document.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',e=>{
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>{history.pushState(null,'',location.pathname);openPanel(null);window.scrollTo({top:0,behavior:'smooth'})}));
 addEventListener('popstate',()=>openPanel(location.hash.slice(1)||null));
 openPanel(location.hash.slice(1)||null,!!location.hash);
+// lightbox for notebook pages
+const lb=document.getElementById('lb');
+document.querySelectorAll('[data-full]').forEach(i=>i.addEventListener('click',()=>{const im=lb.querySelector('img');im.src=i.dataset.full;im.alt=i.alt;lb.classList.add('on')}));
+lb.addEventListener('click',()=>lb.classList.remove('on'));addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
 // board gallery
 const big=document.getElementById('bimg');
 document.querySelectorAll('.thumbs button').forEach(b=>b.addEventListener('click',()=>{

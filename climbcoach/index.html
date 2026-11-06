@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClimbCoach — Zachary D. Lewin</title>
+<meta name="description" content="ClimbCoach: a camera on the climbing wall that watches a bouldering climb, scores it out of 100 and tells you what to work on. A project in progress.">
+<style>
+:root{--ink:#121212;--ink2:#3b3b3b;--muted:#767676;--rule:#e2e2e2;--accent:#d9480f;--chalk:#f4f3ef;
+  --serif:Georgia,"Times New Roman",serif;--sans:"Helvetica Neue",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;background:#fff;color:var(--ink)}
+body{font-family:var(--serif);font-size:20px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}img{display:block;max-width:100%}
+.back{position:fixed;top:12px;left:12px;z-index:50;font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.06em;background:#111;color:#fff;text-decoration:none;padding:7px 10px;line-height:1;box-shadow:0 1px 6px rgba(0,0,0,.18);transition:opacity .25s}
+.back span{font-weight:500;opacity:.75}
+header{max-width:700px;margin:0 auto;padding:70px 22px 10px}
+.kick{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(44px,7vw,72px);line-height:1;margin:.25em 0 .3em;letter-spacing:-.02em}
+.dek{font-size:23px;line-height:1.4;color:var(--ink2);margin:0 0 20px}
+.byline{font-family:var(--sans);font-size:14px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:12px}
+.prose{max-width:700px;margin:0 auto;padding:0 22px}
+.prose p{margin:0 0 1.1em}
+h2{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:2.4em 0 .9em}
+.seed{max-width:1000px;margin:40px auto;padding:0 22px;display:grid;grid-template-columns:minmax(0,420px) 1fr;gap:40px;align-items:center}
+.seed figure{margin:0;background:var(--chalk);padding:16px;transform:rotate(-1.2deg);box-shadow:0 8px 30px rgba(0,0,0,.10)}
+.seed figure img{cursor:zoom-in}
+.seed .cap{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:10px}
+.seed blockquote{margin:0;font-size:24px;line-height:1.45;font-style:italic;color:var(--ink2);border-left:3px solid var(--accent);padding-left:20px}
+.seed blockquote small{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--muted);margin-top:12px}
+.flow{max-width:1000px;margin:24px auto 10px;padding:0 22px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:s}
+.flow .s{position:relative;padding:18px 18px 20px;border-top:3px solid var(--ink);background:#fff}
+.flow .s{border-right:12px solid #fff}.flow .s:not(:last-child):after{content:"→";position:absolute;right:-16px;top:-14px;font-family:var(--sans);font-size:17px;line-height:1;color:var(--accent);background:#fff;padding:2px 3px}
+.flow .n{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.flow h3{font-family:var(--sans);font-size:18px;margin:6px 0 6px}
+.flow p{font-size:15px;line-height:1.5;color:var(--ink2);margin:0}
+.status{max-width:700px;margin:0 auto;padding:0 22px}
+.status table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:15px}
+.status td{padding:11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.status td:first-child{width:58%;padding-right:16px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap}
+.tag.real{background:#e6f2e8;color:#1f6b33}.tag.first{background:#fff1e0;color:#9a5300}.tag.todo{background:#efefef;color:#555}
+.soon{max-width:1000px;margin:70px auto 0;padding:0 22px}
+.soon .box{background:#111;color:#fff;padding:46px 40px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.soon .k{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#ff8a4c;margin:0 0 10px}
+.soon h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);letter-spacing:-.01em;text-transform:none;margin:0 0 10px;line-height:1.1}
+.soon p{margin:0;color:#cfcfcf;font-size:18px;max-width:560px}
+.soon .dot{width:14px;height:14px;border-radius:50%;background:#ff8a4c;box-shadow:0 0 0 0 rgba(255,138,76,.6);animation:p 1.8s infinite}
+@keyframes p{0%{box-shadow:0 0 0 0 rgba(255,138,76,.55)}70%{box-shadow:0 0 0 18px rgba(255,138,76,0)}100%{box-shadow:0 0 0 0 rgba(255,138,76,0)}}
+footer{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center;padding:40px 20px 60px}
+.lb{position:fixed;inset:0;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:20px}
+.lb.on{display:flex}.lb img{max-height:94vh;max-width:94vw;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+@media(max-width:820px){body{font-size:18px}.seed{grid-template-columns:1fr}.flow{grid-template-columns:1fr;gap:6px}.flow .s:not(:last-child):after{content:"↓";right:auto;left:18px;top:auto;bottom:-14px}
+  .soon .box{grid-template-columns:1fr;padding:34px 24px}}
+</style>
+</head>
+<body>
+<a class="back" id="back" href="../">ZDL <span>· All work</span></a>
+
+<header>
+  <div class="kick">Project · In progress</div>
+  <h1>ClimbCoach</h1>
+  <p class="dek">A camera on the climbing wall that watches you climb, scores the attempt out of 100, and tells you exactly what to work on.</p>
+  <div class="byline">By <b>Zachary D. Lewin</b> · Montréal · Python, computer vision</div>
+</header>
+
+<div class="seed">
+  <figure><img src="../assets/nb-climb.jpg" alt="Notebook page dated 17 September 2025: a black-blue problem at Allez Up Mile End drawn hold by hold, with the beta written out" data-full="../assets/nb-climb.jpg"><div class="cap">Notebook, 17 September 2025. Allez Up, Mile End.</div></figure>
+  <blockquote>“Start with right foot on a), hands pushing up into the starts. Reach over to the hold on the right, swap hands on starting…”<small>The beta for a black-blue problem, written out by hand so I could climb it again.</small></blockquote>
+</div>
+
+<div class="prose">
+  <p>This is how a lot of climbers get better: watch, guess, write it down, try again. Filming yourself on a phone helps a little, but the footage tells you nothing on its own, and a good coach is expensive and rare in most gyms.</p>
+  <p>ClimbCoach is the attempt to make that page write itself. The long-term idea is a camera built into the LED training boards climbers already use. You pick a problem in the board’s app, climb it, and get back a score, a replay with your movement drawn over it, and a few specific tips, each pinned to the moment in the video it refers to.</p>
+  <p>A camera fixed to the wall has an advantage a phone never will: it knows exactly which holds are on the problem, the angle of the board and where it is looking from. Every attempt arrives already labelled with the problem, its grade and whether it was sent.</p>
+
+  <h2>How it works</h2>
+  <p>Not one black box, but a chain of small models, each of which can be checked on its own:</p>
+</div>
+
+<div class="flow">
+  <div class="s"><div class="n">01</div><h3>Pose</h3><p>Track the climber’s joints in every frame of the video.</p></div>
+  <div class="s"><div class="n">02</div><h3>Wall</h3><p>Map the camera image onto the board’s known hold layout.</p></div>
+  <div class="s"><div class="n">03</div><h3>Moves</h3><p>Turn the climb into a sequence of hands and feet on specific holds.</p></div>
+  <div class="s"><div class="n">04</div><h3>Compare</h3><p>Match it against good ascents of the same problem, adjusted for height and reach.</p></div>
+  <div class="s"><div class="n">05</div><h3>Score &amp; coach</h3><p>Hip path, pauses, straight arms, foot readjustments: a score out of 100, and tips.</p></div>
+</div>
+
+<div class="prose">
+  <p style="margin-top:28px">Because the score is built from things that can be measured, every piece of advice can point to a moment in the replay. “Your hips wandered” comes with the second it happened.</p>
+  <h2>Where it stands</h2>
+</div>
+
+<div class="status">
+  <table>
+    <tr><td>Pose tracking on climbing video</td><td><span class="tag real">Working</span></td></tr>
+    <tr><td>First metrics: hip path, pauses, arm angle at rest</td><td><span class="tag real">Working, first pass</span></td></tr>
+    <tr><td>Phone app: choose a problem, film, get feedback with a skeleton overlay</td><td><span class="tag first">Prototype built</span></td></tr>
+    <tr><td>Hold mapping: which hold each hand and foot is on</td><td><span class="tag first">Built, tuning on real footage</span></td></tr>
+    <tr><td>Score out of 100</td><td><span class="tag first">Simple rules for now</span></td></tr>
+    <tr><td>Learned score, calibrated with coaches’ judgments</td><td><span class="tag todo">Next</span></td></tr>
+    <tr><td>A fixed camera on a board in a Montréal gym</td><td><span class="tag todo">Next</span></td></tr>
+  </table>
+</div>
+
+<div class="soon">
+  <div class="box">
+    <div>
+      <p class="k">Coming soon</p>
+      <h2>The first replays from the wall.</h2>
+      <p>Next come filming sessions on a training board. The first scored climbs, with skeleton overlays and tips, will go up here.</p>
+    </div>
+    <div class="dot" aria-hidden="true"></div>
+  </div>
+</div>
+
+<footer>Zachary D. Lewin · Montréal</footer>
+<div class="lb" id="lb"><img alt=""></div>
+<script>
+const lb=document.getElementById('lb');
+document.querySelectorAll('[data-full]').forEach(i=>i.addEventListener('click',()=>{lb.querySelector('img').src=i.dataset.full;lb.querySelector('img').alt=i.alt;lb.classList.add('on')}));
+lb.addEventListener('click',()=>lb.classList.remove('on'));addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+const b=document.getElementById('back');addEventListener('scroll',()=>{const h=scrollY>160;b.style.opacity=h?0:1;b.style.pointerEvents=h?'none':'auto'},{passive:true});
+</script>
+</body>
+</html>
