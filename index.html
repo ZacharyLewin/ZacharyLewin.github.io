@@ -116,6 +116,10 @@ nav .links a.on{color:var(--accent)}
 .wcard.book h3{font-style:italic;font-size:26px}
 @media(max-width:900px){.wgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.wgrid{grid-template-columns:1fr}}
+.contact{display:flex;flex-direction:column;gap:10px;margin-top:26px}
+.contact a{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:15px;letter-spacing:.01em;text-decoration:none;color:var(--ink);display:inline-flex;align-items:baseline;gap:14px;width:max-content;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.contact a span{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);min-width:72px}
+.contact a:hover{color:var(--accent);border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -262,6 +266,10 @@ nav .links a.on{color:var(--accent)}
     <div>
       <p>I grew up in London. At school I studied Maths and Classics alongside Design and Engineering. Now, I study Mathematics and Philosophy at McGill.</p>
       <p>I want to create, I want to build, and I want to connect to other people.</p>
+      <div class="contact">
+        <a href="https://wa.me/447747058846" target="_blank" rel="noopener"><span>WhatsApp</span>+44 7747 058846</a>
+        <a href="mailto:zacdlewin@gmail.com"><span>Email</span>zacdlewin@gmail.com</a>
+      </div>
     </div>
     <dl class="facts">
       <dt>Education</dt><dd>BA Mathematics &amp; Philosophy, McGill University, 2027</dd>
