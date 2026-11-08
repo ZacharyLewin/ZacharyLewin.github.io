@@ -165,7 +165,7 @@ nav .links a.on{color:var(--accent)}
 <div class="wrap">
 <nav>
   <a class="logo" href="./">ZDL<span>Zachary D. Lewin</span></a>
-  <div class="links"><a href="#stories" data-p="stories">Stories</a><a href="#design" data-p="design">Design</a><a href="#about" data-p="about">About</a><a href="mailto:zacdlewin@gmail.com">Contact</a></div>
+  <div class="links"><a href="#about" data-p="about">About</a><a href="#stories" data-p="stories">Stories</a><a href="#apps" data-p="apps">Applications</a><a href="#design" data-p="design">Design</a><a href="#contact" class="tocontact">Contact</a></div>
 </nav>
 
 <div class="intro">
@@ -175,10 +175,10 @@ nav .links a.on{color:var(--accent)}
 </div>
 
 <div class="menu" role="tablist" aria-label="Sections">
-  <a class="mbtn" href="#stories" data-p="stories"><span class="n">01</span><span class="t">Stories</span><span class="s">Two data stories, three essays and a novel</span></a>
-  <a class="mbtn" href="#design" data-p="design"><span class="n">02</span><span class="t">Design &amp; objects</span><span class="s">A backgammon board, a rocking chair, furniture and sketches</span></a>
-  <a class="mbtn" href="#also" data-p="also"><span class="n">03</span><span class="t">Other work</span><span class="s">Two apps and a climbing coach</span></a>
-  <a class="mbtn" href="#about" data-p="about"><span class="n">04</span><span class="t">About</span><span class="s">Who I am and how to reach me</span></a>
+  <a class="mbtn" href="#about" data-p="about"><span class="n">01</span><span class="t">About</span><span class="s">Who I am and how to reach me</span></a>
+  <a class="mbtn" href="#stories" data-p="stories"><span class="n">02</span><span class="t">Stories</span><span class="s">Two data stories, three essays and a novel</span></a>
+  <a class="mbtn" href="#apps" data-p="apps"><span class="n">03</span><span class="t">Applications</span><span class="s">SquashIt!, ClimbCoach and Bloomscroll</span></a>
+  <a class="mbtn" href="#design" data-p="design"><span class="n">04</span><span class="t">Design &amp; objects</span><span class="s">A backgammon board, a rocking chair, furniture and sketches</span></a>
 </div>
 <p class="hintline" id="hint">Choose a section to open it.</p>
 
@@ -325,8 +325,8 @@ nav .links a.on{color:var(--accent)}
   </div>
 </section>
 
-<section id="also" class="panel">
-  <p class="label">Other work <button class="closep" data-close>Close ×</button></p>
+<section id="apps" class="panel">
+  <p class="label">Applications <button class="closep" data-close>Close ×</button></p>
   <div class="work">
     <article class="wk">
       <div class="pair">
@@ -359,17 +359,17 @@ nav .links a.on{color:var(--accent)}
     <div>
       <p>I grew up in London. At school I studied Maths and Classics alongside Design and Engineering. Now, I study Mathematics and Philosophy at McGill.</p>
       <p>I want to create, I want to build, and I want to connect to other people.</p>
+      <p>Away from the desk I’m on a wall or a mountain: competitive bouldering in Montréal, Kilimanjaro in 2023, the Zugspitze before that.</p>
       <div class="outside">
         <figure><img src="assets/kili.jpg" data-full="assets/kili.jpg" alt="Zachary at the summit sign on Uhuru Peak, Kilimanjaro" loading="lazy"><figcaption>Uhuru Peak, Kilimanjaro, 5,895 m · 2023</figcaption></figure>
         <figure><img src="assets/ferrata.jpg" data-full="assets/ferrata.jpg" alt="Zachary crossing a wire bridge on a via ferrata between two rock faces" loading="lazy"><figcaption>Via ferrata near Kitzbühel, Austrian Alps</figcaption></figure>
       </div>
-      <p class="off">Away from the desk I’m on a wall or a mountain: competitive bouldering in Montréal, Kilimanjaro in 2023, the Zugspitze before that.</p>
     </div>
     <dl class="facts">
       <dt>Education</dt><dd>BA Mathematics &amp; Philosophy, McGill University, 2027</dd>
       <dt>Tools</dt><dd>Python, SQL (DuckDB), JavaScript, TypeScript, D3, three.js, Fusion 360, Figma</dd>
       <dt>Languages</dt><dd>English and French, fluent</dd>
-      <dt>Contact</dt><dd><div class="contact">
+      <dt id="contact">Contact</dt><dd><div class="contact">
         <a href="https://wa.me/447747058846" target="_blank" rel="noopener"><span>WhatsApp</span>+44 7747 058846</a>
         <a href="mailto:zacdlewin@gmail.com"><span>Email</span>zacdlewin@gmail.com</a>
         <a href="https://www.linkedin.com/in/zacharydlewin/" target="_blank" rel="noopener"><span>LinkedIn</span>zacharydlewin</a>
@@ -390,15 +390,18 @@ function openPanel(id,scroll){
   panels.forEach(p=>p.classList.toggle('show',p.id===id));
   document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('on',a.dataset.p===id));
   document.getElementById('hint').style.display=id?'none':'block';
-  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.bloomwrap video').forEach(v=>{if(id!=='also')v.pause()});
+  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.bloomwrap video').forEach(v=>{if(id!=='apps')v.pause()});
   if(id&&scroll){const el=document.getElementById(id);setTimeout(()=>window.scrollTo({top:el.getBoundingClientRect().top+scrollY-12,behavior:'smooth'}),30)}
 }
 document.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.p;
   const already=document.getElementById(id).classList.contains('show');
   if(already){history.pushState(null,'',location.pathname);openPanel(null)}else{history.pushState(null,'','#'+id);openPanel(id,true)}}));
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>{history.pushState(null,'',location.pathname);openPanel(null);window.scrollTo({top:0,behavior:'smooth'})}));
-addEventListener('popstate',()=>openPanel(location.hash.slice(1)||null));
-openPanel(location.hash.slice(1)||null,!!location.hash);
+addEventListener('popstate',()=>openPanel(norm(location.hash.slice(1))||'about'));
+const norm=h=>({also:'apps',contact:'about'}[h]||h);
+function toContact(){openPanel('about');setTimeout(()=>{const el=document.getElementById('contact');window.scrollTo({top:el.getBoundingClientRect().top+scrollY-24,behavior:'smooth'})},60)}
+document.querySelectorAll('.tocontact').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();history.pushState(null,'','#contact');toContact()}));
+if(location.hash==='#contact') toContact(); else openPanel(norm(location.hash.slice(1))||'about',!!location.hash);
 // lightbox for notebook pages
 const lb=document.getElementById('lb');
 document.querySelectorAll('[data-full]').forEach(i=>i.addEventListener('click',()=>{const im=lb.querySelector('img');im.src=i.dataset.full;im.alt=i.alt;lb.classList.add('on')}));
