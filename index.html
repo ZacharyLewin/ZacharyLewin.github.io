@@ -93,7 +93,7 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 
   .objects,.also{grid-template-columns:1fr}.intro{padding:40px 0 36px}.thumbs{grid-template-columns:repeat(5,1fr)}
   .btn.ghost{margin:8px 0 0}}
 
-.menu{display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);margin:0 0 8px}
+.menu{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);margin:0 0 8px}
 .mbtn{display:flex;flex-direction:column;gap:6px;padding:22px 20px 24px;text-decoration:none;border-right:1px solid var(--rule);transition:background .2s,color .2s;position:relative}
 .mbtn:last-child{border-right:0}
 .mbtn .n{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
@@ -191,7 +191,7 @@ nav .links a.on{color:var(--accent)}
 <div class="wrap">
 <nav>
   <a class="logo" href="./">ZDL<span>Zachary D. Lewin</span></a>
-  <div class="links"><a href="#about" data-p="about">About</a><a href="#stories" data-p="stories">Stories</a><a href="#apps" data-p="apps">Applications</a><a href="#design" data-p="design">Design</a><a href="#photos" data-p="photos">Photos</a><a href="#contact" class="tocontact">Contact</a></div>
+  <div class="links"><a href="#about" data-p="about">About</a><a href="#stories" data-p="stories">Stories</a><a href="#apps" data-p="apps">Applications</a><a href="#design" data-p="design">Design</a><a href="#contact" class="tocontact">Contact</a></div>
 </nav>
 
 <div class="intro">
@@ -208,7 +208,6 @@ nav .links a.on{color:var(--accent)}
   <a class="mbtn" href="#stories" data-p="stories"><span class="n">02</span><span class="t">Stories</span><span class="s">Two data stories, three essays and a novel</span></a>
   <a class="mbtn" href="#apps" data-p="apps"><span class="n">03</span><span class="t">Applications</span><span class="s">SquashIt!, ClimbCoach, Bloomscroll and Marty AI</span></a>
   <a class="mbtn" href="#design" data-p="design"><span class="n">04</span><span class="t">Design &amp; objects</span><span class="s">A backgammon board, a rocking chair, furniture and sketches</span></a>
-  <a class="mbtn" href="#photos" data-p="photos"><span class="n">05</span><span class="t">Photos</span><span class="s">Climbing, track and backgammon</span></a>
 </div>
 <p class="hintline" id="hint">Choose a section to open it.</p>
 
@@ -398,7 +397,7 @@ nav .links a.on{color:var(--accent)}
         <figure><img src="assets/kili.jpg" data-full="assets/kili.jpg" alt="Zachary at the summit sign on Uhuru Peak, Kilimanjaro" loading="lazy"><figcaption>Uhuru Peak, Kilimanjaro, 5,895 m · 2023</figcaption></figure>
         <figure><img src="assets/ferrata.jpg" data-full="assets/ferrata.jpg" alt="Zachary crossing a wire bridge on a via ferrata between two rock faces" loading="lazy"><figcaption>Via ferrata near Kitzbühel, Austrian Alps</figcaption></figure>
       </div>
-      <p class="more"><a href="#photos" data-p="photos">More photos and video →</a></p>
+      <p class="more"><a href="photos/">More photos and video →</a></p>
     </div>
     <dl class="facts">
       <dt class="nob"></dt><dd class="idp"><img src="assets/portrait-id.jpg" data-full="assets/portrait-id.jpg" alt="Portrait of Zachary D. Lewin"></dd>
@@ -414,16 +413,6 @@ nav .links a.on{color:var(--accent)}
     </dl>
   </div>
 </section>
-<section id="photos" class="panel">
-  <p class="label">Photos <button class="closep" data-close>Close ×</button></p>
-  <div class="photos">
-    <figure class="tall"><video src="assets/climb-boulder.mp4" poster="assets/climb-boulder.jpg" muted loop playsinline preload="none" aria-label="Zachary bouldering in Montréal"></video><figcaption>Bouldering, Montréal</figcaption></figure>
-    <figure><img src="assets/backgammon-night.jpg" data-full="assets/backgammon-night.jpg" alt="Zachary playing backgammon at a low table in a candlelit bar" loading="lazy"><figcaption>Backgammon</figcaption></figure>
-    <figure><video src="assets/hurdles.mp4" poster="assets/hurdles.jpg" muted loop playsinline preload="none" aria-label="Zachary running hurdles"></video><figcaption>Hurdles</figcaption></figure>
-    <figure><video src="assets/polevault.mp4" poster="assets/polevault.jpg" muted loop playsinline preload="none" aria-label="Pole vault at a school track meet"></video><figcaption>Pole vault</figcaption></figure>
-    <figure><img src="assets/lectern-sq.jpg" data-full="assets/lectern-sq.jpg" alt="Zachary at the lectern of a McGill lecture hall" loading="lazy"><figcaption>McGill</figcaption></figure>
-  </div>
-</section>
 
 
 <footer><span>ZDL · Zachary D. Lewin · Montréal</span><span>Available Summer 2027, Fall 2027, and full-time after that</span></footer>
@@ -437,7 +426,7 @@ function openPanel(id,scroll){
   panels.forEach(p=>p.classList.toggle('show',p.id===id));
   document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('on',a.dataset.p===id));
   document.getElementById('hint').style.display=id?'none':'block';
-  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.photos video').forEach(v=>{if(id!=='photos')v.pause()});document.querySelectorAll('.bloomwrap video').forEach(v=>{if(id!=='apps')v.pause()});
+  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.bloomwrap video').forEach(v=>{if(id!=='apps')v.pause()});
   if(id&&scroll){const el=document.getElementById(id);setTimeout(()=>window.scrollTo({top:el.getBoundingClientRect().top+scrollY-12,behavior:'smooth'}),30)}
 }
 document.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.p;
