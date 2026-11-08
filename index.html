@@ -138,6 +138,20 @@ nav .links a.on{color:var(--accent)}
 .wk.textonly{grid-template-columns:1fr}
 .wk h3{font-family:var(--serif);font-size:30px;margin:0 0 10px;color:var(--ink)}
 .wk .txt p{margin:0 0 14px}
+.sqwrap{display:grid;grid-template-columns:.78fr 1fr;gap:18px;align-items:end}
+.sqphone{margin:0}.sqp{all:unset;display:block;position:relative;cursor:pointer;background:#0b0a09;border-radius:30px;padding:8px;box-shadow:0 0 0 1.5px #2a2622,0 18px 44px rgba(0,0,0,.28);transition:transform .25s}
+.sqp:hover{transform:translateY(-3px) rotate(-.6deg)}
+.sqp video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:23px;background:#511b7e}
+.sqgo{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--sans);font-size:12.5px;font-weight:700;color:#111;background:#ffc033;border:2px solid #111;box-shadow:3px 3px 0 #111;padding:7px 12px 7px 9px;border-radius:999px}
+.sqgo b{width:0;height:0;border-left:9px solid #111;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.sqphone figcaption,.marty figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:10px}
+.sqside{display:grid;gap:14px}.sqside figure{margin:0}.sqside img{width:100%;cursor:zoom-in;background:#f3f1ec;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.sqside .phone img{border-radius:18px;border:6px solid #111;max-width:62%}
+.sqside figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+.marty{margin:0}.marty .bar{display:flex;align-items:center;gap:6px;background:#e9e6df;border:1px solid #d6d1c7;border-bottom:0;border-radius:10px 10px 0 0;padding:8px 12px}
+.marty .bar i{width:10px;height:10px;border-radius:50%;background:#d1ccc2}.marty .bar span{margin-left:10px;font-family:var(--sans);font-size:12px;color:var(--muted)}
+.marty video{display:block;width:100%;aspect-ratio:960/484;object-fit:cover;border:1px solid #d6d1c7;border-radius:0 0 10px 10px;background:#f4f1ec}
+@media(max-width:560px){.sqwrap{grid-template-columns:1fr}.sqphone{max-width:300px;margin:0 auto}.sqside .phone img{max-width:50%}}
 .pair{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;align-items:end}
 .pair.one{grid-template-columns:1fr}
 .pair figure{margin:0}.pair img{width:100%;cursor:zoom-in;background:#f3f1ec;box-shadow:0 4px 18px rgba(0,0,0,.08)}
@@ -186,7 +200,7 @@ nav .links a.on{color:var(--accent)}
 <div class="menu" role="tablist" aria-label="Sections">
   <a class="mbtn" href="#about" data-p="about"><span class="n">01</span><span class="t">About</span><span class="s">Who I am and how to reach me</span></a>
   <a class="mbtn" href="#stories" data-p="stories"><span class="n">02</span><span class="t">Stories</span><span class="s">Two data stories, three essays and a novel</span></a>
-  <a class="mbtn" href="#apps" data-p="apps"><span class="n">03</span><span class="t">Applications</span><span class="s">SquashIt!, ClimbCoach and Bloomscroll</span></a>
+  <a class="mbtn" href="#apps" data-p="apps"><span class="n">03</span><span class="t">Applications</span><span class="s">SquashIt!, ClimbCoach, Bloomscroll and Marty AI</span></a>
   <a class="mbtn" href="#design" data-p="design"><span class="n">04</span><span class="t">Design &amp; objects</span><span class="s">A backgammon board, a rocking chair, furniture and sketches</span></a>
 </div>
 <p class="hintline" id="hint">Choose a section to open it.</p>
@@ -338,11 +352,14 @@ nav .links a.on{color:var(--accent)}
   <p class="label">Applications <button class="closep" data-close>Close ×</button></p>
   <div class="work">
     <article class="wk">
-      <div class="pair">
+      <div class="sqwrap">
+        <figure class="sqphone"><button class="sqp" id="sqp" aria-label="Play the SquashIt! demo full screen, with sound"><video id="sqv" src="assets/squashit-demo.mp4" poster="assets/squashit-demo-poster.jpg" muted loop playsinline preload="metadata"></video><span class="sqgo"><b></b>Tap to watch with sound</span></button><figcaption>The 30-second demo</figcaption></figure>
+        <div class="sqside">
         <figure><img src="assets/nb-squabbles-t.jpg" data-full="assets/nb-squabbles.jpg" alt="Notebook spread: sketches of the SquashIt Discover page and the Squabbles comment flow" loading="lazy"><figcaption>The sketch</figcaption></figure>
         <figure class="phone"><img src="assets/squashit-discover.jpg" data-full="assets/squashit-discover.jpg" alt="The SquashIt Discover page as built" loading="lazy"><figcaption>The app</figcaption></figure>
+        </div>
       </div>
-      <div class="txt"><p class="meta">Chief product officer · In beta</p><h3>SquashIt!</h3><p>A social app that settles disputes: post your side, strangers vote, and the dispute is squashed when the verdict is clear. I led a team of designers and engineers through the first build and beta testing. The Discover page started as a sketch in my notebook, next to “Squabbles”, reaction icons that sit above the keyboard in the comments.</p></div>
+      <div class="txt"><p class="meta">Chief product officer · In beta</p><h3>SquashIt!</h3><p>A social app that settles disputes: post your side, strangers vote, and the dispute is squashed when the verdict is clear. Post solo, or invite the other person to argue back in a double dispute. I led a team of designers and engineers through the first build and beta testing. The Discover page started as a sketch in my notebook, next to “Squabbles”, reaction icons that sit above the keyboard in the comments.</p></div>
     </article>
     <article class="wk">
       <div class="pair one cc"><figure><a href="climbcoach/"><img src="assets/climbcoach-mark.jpg" alt="ClimbCoach illustration: a figure climbing a ladder up a green boulder" loading="lazy"></a></figure></div>
@@ -358,6 +375,10 @@ nav .links a.on{color:var(--accent)}
       </div>
       <div class="txt"><p class="meta">McHacks 13 · 3rd of 160 · two prizes</p><h3>Bloomscroll</h3><p>Design engineer on an app that lets students upload their own course material and learn it by scrolling. Each course grows into a knowledge tree as you study. The pitch, from my notes: “Let’s put an end to the doom, and let’s begin to Bloom.”</p>
       </div>
+    </article>
+    <article class="wk">
+      <figure class="marty"><div class="bar"><i></i><i></i><i></i><span>Marty AI</span></div><video src="assets/marty-demo.mp4" poster="assets/marty-demo-poster.jpg" muted loop playsinline preload="none" aria-label="Screen recording of Marty AI answering student questions"></video><figcaption>Marty answering questions, recorded April 2026</figcaption></figure>
+      <div class="txt"><p class="meta">Side project · 2026</p><h3>Marty AI</h3><p>A chatbot for McGill students. Ask Marty how to register for courses, or about careers, events and clubs, and it answers in plain language, with tables when there is something to compare and links to where the information came from.</p></div>
     </article>
   </div>
 </section>
@@ -436,7 +457,16 @@ document.querySelectorAll('.thumbs:not(.rthumbs) button').forEach(b=>b.addEventL
 }));
 // play CAD videos only while on screen
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else v.pause()}),{threshold:.35});
-document.querySelectorAll('.obj video,.outside video,.track video').forEach(v=>io.observe(v));
+document.querySelectorAll('.obj video,.outside video,.track video,.marty video').forEach(v=>io.observe(v));
+
+// SquashIt demo: silent loop in the phone; tap for full screen with sound
+(()=>{const b=document.getElementById('sqp'),v=document.getElementById('sqv');if(!b)return;
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&v.muted)v.play().catch(()=>{});else if(!e.isIntersecting&&v.muted)v.pause()}),{threshold:.4}).observe(v);
+b.addEventListener('click',()=>{if(!v.muted)return;v.muted=false;v.loop=false;v.currentTime=0;v.controls=true;v.play().catch(()=>{});
+  const fs=v.requestFullscreen||v.webkitRequestFullscreen;if(fs)fs.call(v).catch?.(()=>{});else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()});
+const back=()=>{if(!(document.fullscreenElement||document.webkitFullscreenElement)){v.muted=true;v.loop=true;v.controls=false;v.play().catch(()=>{})}};
+document.addEventListener('fullscreenchange',back);document.addEventListener('webkitfullscreenchange',back);v.addEventListener('webkitendfullscreen',back);
+v.addEventListener('ended',()=>{if(document.fullscreenElement)document.exitFullscreen();back()})})();
 </script>
 </body>
 </html>
