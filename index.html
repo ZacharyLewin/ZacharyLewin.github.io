@@ -23,7 +23,9 @@ nav{display:flex;justify-content:space-between;align-items:flex-end;padding:28px
 .logo span{display:block;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:7px}
 nav .links{font-family:var(--sans);font-size:14px;display:flex;gap:24px}
 nav .links a{text-decoration:none;color:var(--ink2)}nav .links a:hover{color:var(--accent)}
-.intro{padding:60px 0 54px;max-width:820px}
+.intro{padding:60px 0 54px;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:56px;align-items:end}
+.intro .me{margin:0}.intro .me img{width:100%;aspect-ratio:4/5;object-fit:cover;cursor:zoom-in;filter:saturate(.92)}
+@media(max-width:760px){.intro{grid-template-columns:1fr;gap:22px}.intro .me{max-width:120px;order:-1}}
 .intro h1{font-weight:400;font-size:clamp(25px,3.3vw,36px);line-height:1.32;margin:0;letter-spacing:-.005em}
 .intro h1 b{font-weight:700}
 .intro h1{font-size:clamp(40px,6vw,68px);letter-spacing:-.02em;line-height:1.05}
@@ -76,6 +78,7 @@ section.first{border-top:0;padding-top:0}
 /* about */
 .about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
 .about p{margin:0 0 1em}
+.facts .lect img{width:132px;height:132px;border-radius:50%;object-fit:cover;cursor:zoom-in;margin-bottom:6px}
 .facts{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink2);margin:0}
 .facts dt{font-weight:700;color:var(--ink);margin-top:14px}.facts dt:first-child{margin-top:0}.facts dd{margin:2px 0 0}
 footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 56px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
@@ -146,6 +149,9 @@ nav .links a.on{color:var(--accent)}
 @media(max-width:900px){.nbgrid,.wk{grid-template-columns:1fr;gap:18px}}
 .outside{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 10px;max-width:520px}
 .outside figure{margin:0}.outside img{width:100%;aspect-ratio:4/5;object-fit:cover;cursor:zoom-in;display:block}
+.outside.three{grid-template-columns:repeat(3,1fr);max-width:640px}.outside video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#222}
+.track{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px;margin:12px 0 10px}.track figure{margin:0}.track video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#222}.track figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
+@media(max-width:560px){.outside.three{grid-template-columns:1fr 1fr}.track{grid-template-columns:1fr}}
 .outside figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px}
 .about p.off{font-family:var(--sans);font-size:14.5px;line-height:1.55;color:var(--ink2);max-width:520px}
 .pair.bloom{grid-template-columns:.62fr 1.5fr;align-items:end}
@@ -169,9 +175,12 @@ nav .links a.on{color:var(--accent)}
 </nav>
 
 <div class="intro">
+  <div class="itext">
   <p class="label">Visual storytelling · Data · Design</p>
   <h1><b>What? Why? How?</b></h1>
   <p class="sub">These are the three questions I ask myself before I embark on any idea, task or project. Without a good answer to all three, reassess what you’re doing, ask yourself why, and then figure out how!</p>
+  </div>
+  <figure class="me"><img src="assets/portrait-hero.jpg" data-full="assets/portrait.jpg" alt="Portrait of Zachary D. Lewin"></figure>
 </div>
 
 <div class="menu" role="tablist" aria-label="Sections">
@@ -221,8 +230,8 @@ nav .links a.on{color:var(--accent)}
       <a class="wcard book" href="dime-a-dozen/">
         <p class="meta">Fiction · Novel in progress</p>
         <h3>Dime a Dozen</h3>
-        <p>London, autumn 1945. A shilling is struck at the Royal Mint, carried to the vaults of the Bank of England, and waits to be spent. Chapter one.</p>
-        <span class="go">Read chapter one →</span>
+        <p>London, autumn 1945. A shilling is struck at the Royal Mint, carried to the vaults of the Bank of England, and waits to be spent. An excerpt from chapter one.</p>
+        <span class="go">Read the excerpt →</span>
       </a>
       <a class="wcard" href="https://interfaice.substack.com/p/state-of-the-art" target="_blank" rel="noopener">
         <p class="meta">Interf(ai)ce · Oct 2026</p>
@@ -357,15 +366,22 @@ nav .links a.on{color:var(--accent)}
   <p class="label">About <button class="closep" data-close>Close ×</button></p>
   <div class="about">
     <div>
-      <p>I grew up in London. At school I studied Maths and Classics alongside Design and Engineering. Now, I study Mathematics and Philosophy at McGill.</p>
-      <p>I want to create, I want to build, and I want to connect to other people.</p>
-      <p>Away from the desk I’m on a wall or a mountain: competitive bouldering in Montréal, Kilimanjaro in 2023, the Zugspitze before that.</p>
-      <div class="outside">
+      <p>I was born and raised in London, the eldest of three, to parents originally from Belgium and Germany. At Highgate School I ran track and field, played football and took A Levels in Mathematics, Design &amp; Engineering and Classics, graduating in 2023. Now I study Mathematics and Philosophy at McGill.</p>
+      <p>I am passionate about creating tools that help people navigate a more complex world, and that connect them to each other. Alongside my degree I write for Interf(ai)ce, McGill’s journal on AI and society, participate in hackathons (Bloomscroll placed 3rd of 160 at McHacks 13), and work part time, all while building SquashIt!, a microaggressions social dispute platform, coming to the App Store soon.</p>
+      <p>I want to create, I love to build, and I hope to connect with other people.</p>
+      <p>Away from the desk I’m on a wall, a track or a mountain: competitive bouldering in Montréal, hurdles and pole vault at school, Kilimanjaro in 2023, the Zugspitze before that.</p>
+      <div class="outside three">
+        <figure><video src="assets/climb-boulder.mp4" poster="assets/climb-boulder.jpg" muted loop playsinline preload="none" aria-label="Zachary bouldering in Montréal"></video><figcaption>Bouldering, Montréal</figcaption></figure>
         <figure><img src="assets/kili.jpg" data-full="assets/kili.jpg" alt="Zachary at the summit sign on Uhuru Peak, Kilimanjaro" loading="lazy"><figcaption>Uhuru Peak, Kilimanjaro, 5,895 m · 2023</figcaption></figure>
         <figure><img src="assets/ferrata.jpg" data-full="assets/ferrata.jpg" alt="Zachary crossing a wire bridge on a via ferrata between two rock faces" loading="lazy"><figcaption>Via ferrata near Kitzbühel, Austrian Alps</figcaption></figure>
       </div>
+      <div class="track">
+        <figure><video src="assets/hurdles.mp4" poster="assets/hurdles.jpg" muted loop playsinline preload="none" aria-label="Zachary running hurdles"></video><figcaption>Hurdles</figcaption></figure>
+        <figure><video src="assets/polevault.mp4" poster="assets/polevault.jpg" muted loop playsinline preload="none" aria-label="Pole vault at a school track meet"></video><figcaption>Pole vault</figcaption></figure>
+      </div>
     </div>
     <dl class="facts">
+      <dt class="nob"></dt><dd class="lect"><img src="assets/lectern-sq.jpg" data-full="assets/lectern.jpg" alt="Zachary at the lectern of a McGill lecture hall" loading="lazy"></dd>
       <dt>Education</dt><dd>BA Mathematics &amp; Philosophy, McGill University, 2027</dd>
       <dt>Tools</dt><dd>Python, SQL (DuckDB), JavaScript, TypeScript, D3, three.js, Fusion 360, Figma</dd>
       <dt>Languages</dt><dd>English and French, fluent</dd>
@@ -390,7 +406,7 @@ function openPanel(id,scroll){
   panels.forEach(p=>p.classList.toggle('show',p.id===id));
   document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('on',a.dataset.p===id));
   document.getElementById('hint').style.display=id?'none':'block';
-  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.bloomwrap video').forEach(v=>{if(id!=='apps')v.pause()});
+  document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.outside video,.track video').forEach(v=>{if(id!=='about')v.pause()});document.querySelectorAll('.bloomwrap video').forEach(v=>{if(id!=='apps')v.pause()});
   if(id&&scroll){const el=document.getElementById(id);setTimeout(()=>window.scrollTo({top:el.getBoundingClientRect().top+scrollY-12,behavior:'smooth'}),30)}
 }
 document.querySelectorAll('[data-p]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.p;
@@ -420,7 +436,7 @@ document.querySelectorAll('.thumbs:not(.rthumbs) button').forEach(b=>b.addEventL
 }));
 // play CAD videos only while on screen
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else v.pause()}),{threshold:.35});
-document.querySelectorAll('.obj video').forEach(v=>io.observe(v));
+document.querySelectorAll('.obj video,.outside video,.track video').forEach(v=>io.observe(v));
 </script>
 </body>
 </html>
