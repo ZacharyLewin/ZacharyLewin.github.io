@@ -161,7 +161,8 @@ nav .links a.on{color:var(--accent)}
 .wrow::-webkit-scrollbar{display:none}
 .wrow .wcard{flex:0 0 76%;scroll-snap-align:start;padding:16px 16px 14px}
 .wcard h3{font-size:20px}.wcard.book h3{font-size:24px}.wcard p{font-size:15px}
-#apps .wk{display:flex;flex-direction:column;gap:0;align-items:stretch}
+#apps .wk{display:flex;flex-direction:column;gap:0;align-items:stretch;border:1px solid var(--rule);border-top:3px solid var(--ink);background:#fff;padding:18px 16px 6px;margin:0 0 22px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+#apps .wk:last-child{border-bottom:1px solid var(--rule)}#apps .wk:first-child{padding-top:18px}
 #apps .wk>.txt{display:contents}
 #apps .wk .txt .meta{order:1;margin:0 0 6px}#apps .wk h3{order:2;margin:0 0 14px}
 #apps .wk>:not(.txt){order:3;margin-bottom:16px}
