@@ -161,6 +161,11 @@ nav .links a.on{color:var(--accent)}
 .wrow::-webkit-scrollbar{display:none}
 .wrow .wcard{flex:0 0 76%;scroll-snap-align:start;padding:16px 16px 14px}
 .wcard h3{font-size:20px}.wcard.book h3{font-size:24px}.wcard p{font-size:15px}
+#apps .wk{display:flex;flex-direction:column;gap:0;align-items:stretch}
+#apps .wk>.txt{display:contents}
+#apps .wk .txt .meta{order:1;margin:0 0 6px}#apps .wk h3{order:2;margin:0 0 14px}
+#apps .wk>:not(.txt){order:3;margin-bottom:16px}
+#apps .wk .txt>p:not(.meta){order:4;font-size:16px;line-height:1.5;color:var(--ink2)}#apps .wk .txt .btn{order:5;align-self:flex-start;margin-bottom:6px}
 .wswipe{display:block;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:2px 0 0}}
 .contact{display:flex;flex-direction:column;gap:8px;margin-top:6px}
 .contact a{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:15px;letter-spacing:.01em;text-decoration:none;color:var(--ink);display:inline-flex;align-items:baseline;gap:14px;width:max-content;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
@@ -407,7 +412,7 @@ nav .links a.on{color:var(--accent)}
     </article>
     <article class="wk">
       <div class="pair one cc"><figure><a href="climbcoach/"><img src="assets/climbcoach-mark.jpg" alt="ClimbCoach illustration: a figure climbing a ladder up a green boulder" loading="lazy"></a></figure></div>
-      <div class="txt"><p class="meta">Project · In progress</p><h3>ClimbCoach</h3><p>A camera on the climbing wall that watches a bouldering attempt, scores it out of 100 and tells you what to work on, each tip pinned to a moment in the replay. Pose tracking and the first metrics work; the learned score is next.</p><a class="btn" href="climbcoach/">See the project →</a></div>
+      <div class="txt"><p class="meta">Founder · In development</p><h3>ClimbCoach</h3><p>A camera on the climbing wall that watches a bouldering attempt, scores it out of 100 and tells you what to work on, each tip pinned to a moment in the replay. Pose tracking and the first metrics work; the learned score is next.</p><a class="btn" href="climbcoach/">See the project →</a></div>
     </article>
     <article class="wk">
       <div class="bloomwrap">
@@ -422,7 +427,7 @@ nav .links a.on{color:var(--accent)}
     </article>
     <article class="wk">
       <figure class="marty"><div class="bar"><i></i><i></i><i></i><span>Marty AI</span></div><video src="assets/marty-demo.mp4" poster="assets/marty-demo-poster.jpg" muted loop playsinline preload="none" aria-label="Screen recording of Marty AI answering student questions"></video><figcaption>Marty answering questions, recorded April 2026</figcaption></figure>
-      <div class="txt"><p class="meta">Side project · 2025</p><h3>Marty AI</h3><p>Marty started because I needed help. In 2025 I ran into problems with my study permit and found myself lost in McGill’s internal systems, unsure who to ask or what was due when. So I took matters into my own hands and built my own McGill chatbot.</p><p>What began as admin and deadline checks became something bigger: a chatbot dedicated to career opportunities at McGill. It covers career fairs and jobs in Montréal, on and off campus, and how to go after them. I started out needing help, and ended up with a platform where I could create whatever help I needed.</p></div>
+      <div class="txt"><p class="meta">Project · 2025</p><h3>Marty AI</h3><p>Marty started because I needed help. In 2025 I ran into problems with my study permit and found myself lost in McGill’s internal systems, unsure who to ask or what was due when. So I took matters into my own hands and built my own McGill chatbot.</p><p>What began as admin and deadline checks became something bigger: a chatbot dedicated to career opportunities at McGill. It covers career fairs and jobs in Montréal, on and off campus, and how to go after them. I started out needing help, and ended up with a platform where I could create whatever help I needed.</p></div>
     </article>
   </div>
 </section>
@@ -458,7 +463,7 @@ nav .links a.on{color:var(--accent)}
 </section>
 
 
-<footer><span>ZDL · Zachary D. Lewin · Montréal</span><span>Available Summer 2027, Fall 2027, and full-time after that</span></footer>
+<footer><span>ZDL · Zachary D. Lewin · Montréal</span></footer>
 </div>
 <div class="mbar" id="mbar" aria-hidden="true">
   <a class="logo" href="./">ZDL<span>Zachary D. Lewin</span></a>
