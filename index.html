@@ -91,6 +91,7 @@ section.first{border-top:0;padding-top:0}
 .dek{color:var(--ink2);margin:0 0 16px;font-size:19px}
 .role{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink2);border-left:3px solid var(--accent);padding:2px 0 2px 14px;margin:18px 0 20px}
 .role b{color:var(--ink)}
+.role ul{margin:8px 0 0;padding-left:18px}.role li{margin:0}
 .btn{display:inline-block;font-family:var(--sans);font-size:14px;font-weight:700;background:var(--ink);color:#fff;text-decoration:none;padding:12px 18px}
 .btn:hover{background:var(--accent)}
 .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--ink);margin-left:6px}.btn.ghost:hover{background:var(--ink);color:#fff}
@@ -265,7 +266,7 @@ nav .links a.on{color:var(--accent)}
   <div class="itext">
   <p class="label">Visual storytelling · Data · Design</p>
   <h1><b>What? Why? How?</b></h1>
-  <p class="sub">These are the three questions I ask myself before I embark on any idea, task or project. Without a good answer to all three, reassess what you’re doing, ask yourself why, and then figure out how!</p>
+  <p class="sub">These are the three questions I ask myself before I embark on any idea, task or project. Without a good answer to all three: reassess <em>what</em> you’re doing, ask yourself <em>why</em>, and figure out <em>how</em>!</p>
   </div>
   <div class="side">
   <figure class="me"><img src="assets/portrait-hero.jpg" data-full="assets/portrait.jpg" alt="Portrait of Zachary D. Lewin"></figure>
@@ -279,10 +280,9 @@ nav .links a.on{color:var(--accent)}
   <a class="mbtn" href="#apps" data-p="apps"><span class="t">Applications</span></a>
   <a class="mbtn" href="#design" data-p="design"><span class="t">Designs</span></a>
 </div>
-<p class="hintline" id="hint">Choose a section to open it.</p>
 
 <section id="stories" class="panel">
-  <p class="label">Stories <button class="closep" data-close>Close ×</button></p>
+  <p class="label">Stories</p>
 
   <article class="story">
     <div class="imgs">
@@ -291,10 +291,10 @@ nav .links a.on{color:var(--accent)}
       <a class="sq" href="last-call/"><img src="assets/lastcall-main.jpg" alt="Map of late-night BIXI trips along Boulevard Saint-Laurent" loading="lazy"></a>
     </div>
     <div>
-      <p class="kick">Montréal · Interactive</p>
+      <p class="kick">October 2026 · Interactive</p>
       <h2><a href="last-call/">Last Call, by Bike</a></h2>
-      <p class="dek">Montréal’s bike-share data shows a city that commutes like clockwork by day. After dark it tells a different story, down to the minute the bars close.</p>
-      <div class="role"><b>Reporting, analysis, design, code and writing.</b> 23.7 million BIXI trips, January 2025 to August 2026, processed in Python and DuckDB. Scroll-driven maps, campus small multiples and charts built in D3.</div>
+      <p class="dek">Montréal’s BIXI bike-share data presents a city that commutes like an ocean by day. But after hours it tells a different story, down to the minute the bars close.</p>
+      <div class="role"><b>23.7 million BIXI trips</b>, January 2025 to August 2026.<ul><li><em>Processed in Python and DuckDB. Scroll-driven maps, campus small multiples and charts built in D3.</em></li></ul></div>
       <a class="btn" href="last-call/">Read the story →</a>
     </div>
   </article>
@@ -306,10 +306,10 @@ nav .links a.on{color:var(--accent)}
       <a class="sq" href="chains/"><img src="assets/chains-boros.jpg" alt="Arrow chart of the chain share of food businesses by borough, 2013 and 2026" loading="lazy" style="object-fit:contain;background:#fff;padding:6px"></a>
     </div>
     <div>
-      <p class="kick">Montréal · Interactive</p>
+      <p class="kick">October 2026 · Interactive</p>
       <h2><a href="chains/">The Chains Aren’t Eating Montréal. They’re Moving.</a></h2>
-      <p class="dek">Fourteen years of city food-inspection records show chains losing ground downtown, spreading into the suburbs, and doing no measurable harm to the independents next door.</p>
-      <div class="role"><b>Reporting, analysis, design, code and writing.</b> Built a fourteen-year history of every food business in the city from inspection records, then compared closures next to 673 new chain locations with closures a few blocks away. Sixteen borough maps on one timeline, in D3.</div>
+      <p class="dek">14 years of city food-inspection records tell the underdog story of how the big chains have been losing the downtown, fleeing into the suburbs, whilst doing no measurable harm to the local mom’n’pops next door.</p>
+      <div class="role"><b>Montréal’s fourteen-year history</b> of every food business in the city.<ul><li><em>Data collected from the inspection records, analysed closures next to 673 new chain locations with closures within a neighbourhood. Sixteen borough maps on one timeline, in D3.</em></li></ul></div>
       <a class="btn" href="chains/">Read the story →</a>
     </div>
   </article>
@@ -320,26 +320,26 @@ nav .links a.on{color:var(--accent)}
       <a class="wcard book" href="dime-a-dozen/">
         <p class="meta">Fiction · Novel in progress</p>
         <h3>Dime a Dozen</h3>
-        <p>London, autumn 1945. A shilling is struck at the Royal Mint, carried to the vaults of the Bank of England, and waits to be spent. An excerpt from chapter one.</p>
+        <p>Follow an old English shilling on its journey through time. From one pocket to another, a story of life, destruction and time, from the perspective of what has driven so much of it.</p>
         <span class="go">Read the excerpt →</span>
       </a>
       <div class="wrow">
       <a class="wcard" href="https://interfaice.substack.com/p/state-of-the-art" target="_blank" rel="noopener">
         <p class="meta">Interf(ai)ce · Oct 2026</p>
         <h3>State of the Art</h3>
-        <p>Standing before the Parthenon marbles, with Kandinsky’s warning about still-born art: can a machine that learns from what has been made ever make something new?</p>
+        <p><em>Standing before the Parthenon marbles, with Kandinsky’s warning about still-born art: can a machine that learns from what has been made ever make something new?</em></p>
         <span class="go">Read on Interf(ai)ce ↗</span>
       </a>
       <a class="wcard" href="https://interfaice.substack.com/p/what-is-a-moat-made-of" target="_blank" rel="noopener">
         <p class="meta">Interf(ai)ce · Aug 2026</p>
         <h3>What Is A Moat Made Of?</h3>
-        <p>Who might rise and who could fall with the advent of AI.</p>
+        <p><em>Who might rise and who could fall with the advent of AI.</em></p>
         <span class="go">Read on Interf(ai)ce ↗</span>
       </a>
       <a class="wcard" href="https://interfaice.substack.com/p/what-is-an-ineffable-future" target="_blank" rel="noopener">
         <p class="meta">Interf(ai)ce · May 2026</p>
         <h3>What Is An Ineffable Future?</h3>
-        <p>From AlphaGo to David Silver’s bet on systems that learn for themselves, rather than from the written human record.</p>
+        <p><em>From AlphaGo to David Silver’s bet on systems that learn for themselves, rather than from the written human record.</em></p>
         <span class="go">Read on Interf(ai)ce ↗</span>
       </a>
       </div>
@@ -350,7 +350,7 @@ nav .links a.on{color:var(--accent)}
 
 
 <section id="design" class="panel">
-  <p class="label">Design &amp; objects <button class="closep" data-close>Close ×</button></p>
+  <p class="label">Design &amp; objects</p>
   <div class="board">
     <div>
       <div class="hero"><img id="bimg" src="assets/board-open.jpg" alt="Concrete backgammon board, open, with shells as checkers"></div>
@@ -428,7 +428,7 @@ nav .links a.on{color:var(--accent)}
 </section>
 
 <section id="apps" class="panel">
-  <p class="label">Applications <button class="closep" data-close>Close ×</button></p>
+  <p class="label">Applications</p>
   <div class="work">
     <article class="wk">
       <div class="sqwrap">
@@ -459,7 +459,7 @@ nav .links a.on{color:var(--accent)}
 </section>
 
 <section id="about" class="panel">
-  <p class="label">About <button class="closep" data-close>Close ×</button></p>
+  <p class="label">About</p>
   <div class="about">
     <div>
       <p>I was born and raised in London, the eldest of three, to parents originally from Belgium and Germany. At Highgate School I ran track and field, played football and took A Levels in Mathematics, Design &amp; Engineering and Classics, graduating in 2023. Now I study Mathematics and Philosophy at McGill.</p>
@@ -520,7 +520,6 @@ fitLogo();addEventListener('resize',fitLogo);if(document.fonts)document.fonts.re
 function openPanel(id,scroll){
   panels.forEach(p=>p.classList.toggle('show',p.id===id));
   document.querySelectorAll('[data-p]').forEach(a=>a.classList.toggle('on',a.dataset.p===id));
-  document.getElementById('hint').style.display=id?'none':'block';
   document.querySelectorAll('.obj video').forEach(v=>{if(id!=='design')v.pause()});document.querySelectorAll('.bloomwrap video').forEach(v=>{if(id!=='apps')v.pause()});
   if(id&&scroll){const el=document.getElementById(id);setTimeout(()=>glide(el.getBoundingClientRect().top+scrollY-topOffset()),30)}
 }
