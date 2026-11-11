@@ -221,7 +221,8 @@ nav .links a.on{color:var(--accent)}
 .pin-note{margin:6px 0 0;width:180px;transform:rotate(-2deg)}
 .pin-note img{width:100%;cursor:zoom-in;box-shadow:0 4px 14px rgba(0,0,0,.1)}
 .pin-note figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:6px;transform:rotate(2deg)}
-.bloomwrap .demo{margin:0}.bloomwrap .demo video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+.bloomwrap .demo{margin:0}.bloomwrap .demo video{width:100%;display:block;background:#000;aspect-ratio:1/1;object-fit:cover}
+@media(min-width:601px){.bloomwrap{display:grid;grid-template-columns:1.6fr 1fr;gap:12px;align-items:start}.bloomwrap .pair.two{grid-template-columns:1fr;margin:0}}
 .bloomwrap .demo figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
 .pair.two{grid-template-columns:1fr 1fr;margin-top:14px;align-items:start}
 .pair.two img{aspect-ratio:4/3;object-fit:cover}
@@ -417,7 +418,7 @@ nav .links a.on{color:var(--accent)}
     </article>
     <article class="wk">
       <div class="bloomwrap">
-        <figure class="demo"><video src="assets/bloomscroll-demo.mp4" poster="assets/bloomscroll-demo-poster.jpg" controls playsinline preload="metadata" aria-label="Bloomscroll: the demo video submitted to McHacks 13"></video><figcaption>The demo we submitted to McHacks 13 · 55 s, with sound</figcaption></figure>
+        <figure class="demo"><video src="assets/bloomscroll-demo.mp4" poster="assets/bloomscroll-demo-poster.jpg" controls playsinline preload="metadata" aria-label="Bloomscroll: the demo video submitted to McHacks 13"></video><figcaption>The demo we submitted to McHacks 13 · 51 s, with sound</figcaption></figure>
         <div class="pair two">
           <figure><img src="assets/bloomscroll-demo.jpg" data-full="assets/bloomscroll-demo.jpg" alt="Zachary presenting Bloomscroll at the McHacks 13 demo" loading="lazy"><figcaption>Presenting at the demo</figcaption></figure>
           <figure><img src="assets/nb-bloomscroll-t.jpg" data-full="assets/nb-bloomscroll.jpg" alt="Notebook spread: notes for the Bloomscroll pitch video, with a drawing of a flowering stem" loading="lazy"><figcaption>The pitch, in my notebook</figcaption></figure>
