@@ -138,10 +138,13 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);padding:26px 0 
   .btn.ghost{margin:8px 0 0}}
 
 .menu{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);margin:0 0 8px}
-.mbtn{display:flex;flex-direction:column;justify-content:center;padding:26px 20px;text-decoration:none;border-right:1px solid var(--rule);transition:background .2s,color .2s;position:relative}
+.mbtn{display:flex;flex-direction:column;gap:8px;padding:22px 20px 24px;text-decoration:none;border-right:1px solid var(--rule);transition:background .2s,color .2s;position:relative}
 .mbtn:last-child{border-right:0}
 .mbtn .n{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
 .mbtn .t{font-family:var(--serif);font-size:26px;font-weight:700;line-height:1.1}
+.mbtn:after{content:"→";position:absolute;right:18px;top:20px;font-family:var(--sans);font-size:18px;transition:transform .2s}
+.mbtn:hover:after{transform:translateX(4px)}
+.mbtn.on:after{content:"↓"}
 .mbtn .s{font-family:var(--sans);font-size:13.5px;color:var(--ink2);line-height:1.4}
 .mbtn:hover{background:#f6f5f2}
 .mbtn.on{background:var(--ink);color:#fff}.mbtn.on .n,.mbtn.on .s{color:#cfcfcf}
@@ -275,10 +278,10 @@ nav .links a.on{color:var(--accent)}
 </div>
 
 <div class="menu" role="tablist" aria-label="Sections">
-  <a class="mbtn" href="#about" data-p="about"><span class="t">About</span></a>
-  <a class="mbtn" href="#stories" data-p="stories"><span class="t">Stories</span></a>
-  <a class="mbtn" href="#apps" data-p="apps"><span class="t">Applications</span></a>
-  <a class="mbtn" href="#design" data-p="design"><span class="t">Designs</span></a>
+  <a class="mbtn" href="#about" data-p="about"><span class="n">01</span><span class="t">About</span></a>
+  <a class="mbtn" href="#stories" data-p="stories"><span class="n">02</span><span class="t">Stories</span></a>
+  <a class="mbtn" href="#apps" data-p="apps"><span class="n">03</span><span class="t">Applications</span></a>
+  <a class="mbtn" href="#design" data-p="design"><span class="n">04</span><span class="t">Designs</span></a>
 </div>
 
 <section id="stories" class="panel">
