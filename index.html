@@ -97,7 +97,9 @@ section.first{border-top:0;padding-top:0}
 .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--ink);margin-left:6px}.btn.ghost:hover{background:var(--ink);color:#fff}
 /* board */
 .board{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:start}
-.board .hero{background:var(--stone);aspect-ratio:4/3;overflow:hidden}
+.board .hero{background:var(--stone);aspect-ratio:4/3;overflow:hidden;display:block;cursor:pointer}
+a.hero img{transition:transform .35s ease,opacity .35s}a.hero:hover img{transform:scale(1.025)}
+.obj h2 a{color:inherit;text-decoration:none}.obj h2 a:hover{text-decoration:underline;text-decoration-thickness:2px}
 .board .hero img{width:100%;height:100%;object-fit:cover;transition:opacity .35s}
 .rockerf .hero img{object-fit:contain}
 .thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
@@ -356,7 +358,7 @@ nav .links a.on{color:var(--accent)}
   <p class="label">Design &amp; objects</p>
   <div class="board">
     <div>
-      <div class="hero"><img id="bimg" src="assets/board-open.jpg" alt="Concrete backgammon board, open, with shells as checkers"></div>
+      <a class="hero" href="backgammon/" aria-label="Open the backgammon board page"><img id="bimg" src="assets/board-open.jpg" alt="Concrete backgammon board, open, with shells as checkers"></a>
       <div class="thumbs" role="tablist" aria-label="Board views">
         <button class="on" data-src="assets/board-open.jpg" data-alt="The board open"><img src="assets/board-open.jpg" alt="Open" loading="lazy"></button>
         <button data-src="assets/board-exploded.jpg" data-alt="The board taken apart into its parts"><img src="assets/board-exploded.jpg" alt="Exploded" loading="lazy"></button>
@@ -367,7 +369,7 @@ nav .links a.on{color:var(--accent)}
     </div>
     <div>
       <p class="kick">Furniture · Interactive 3-D</p>
-      <h2 style="font-size:clamp(28px,3vw,36px);line-height:1.08;margin:0 0 12px">A Folding Backgammon Board</h2>
+      <h2 style="font-size:clamp(28px,3vw,36px);line-height:1.08;margin:0 0 12px"><a href="backgammon/">A Folding Backgammon Board</a></h2>
       <p class="dek">A permanent board in cast concrete and blackened steel, played with shells picked up on the beach.</p>
       <p style="font-size:16.5px;color:var(--ink2);margin:0">I never understood why every board is made of wood. I wanted a permanent board: not one you carry to the game, but one you go to. Its proportions come from the body: open, it is four-thirds of an average pair of shoulders wide and one arm’s reach long. There is no hinge: one half lifts by its strap and lays face-down on the other, where eight magnets hold it shut.</p>
       <dl class="spec">
@@ -381,7 +383,7 @@ nav .links a.on{color:var(--accent)}
 
   <div class="board rockerf" style="margin-top:56px;padding-top:44px;border-top:1px solid var(--rule)">
     <div>
-      <div class="hero" style="background:#f4f3f0"><img id="rimg" src="assets/rocker-hero.jpg" alt="The Right Angled Rocker: a stainless-steel L-shaped rocking chair with leather seat and back"></div>
+      <a class="hero" style="background:#f4f3f0" href="rocker/" aria-label="Open the Right Angled Rocker page"><img id="rimg" src="assets/rocker-hero.jpg" alt="The Right Angled Rocker: a stainless-steel L-shaped rocking chair with leather seat and back"></a>
       <div class="thumbs rthumbs">
         <button class="on" data-src="assets/rocker-hero.jpg" data-alt="The chair"><img src="assets/rocker-hero.jpg" alt="Chair" loading="lazy"></button>
         <button data-src="assets/rocker-exploded.jpg" data-alt="Taken apart: one sheet, two side panels, pads, truss"><img src="assets/rocker-exploded.jpg" alt="Exploded" loading="lazy"></button>
@@ -392,7 +394,7 @@ nav .links a.on{color:var(--accent)}
     </div>
     <div>
       <p class="kick">Furniture · Interactive 3-D</p>
-      <h2 style="font-size:clamp(28px,3vw,36px);line-height:1.08;margin:0 0 12px">The Right Angled Rocker</h2>
+      <h2 style="font-size:clamp(28px,3vw,36px);line-height:1.08;margin:0 0 12px"><a href="rocker/">The Right Angled Rocker</a></h2>
       <p class="dek">A rocking chair pressed from one sheet of stainless steel, with a soft seat grooved for the body and a back you sink into.</p>
       <p style="font-size:16.5px;color:var(--ink2);margin:0">From the side it is an L of three 45 cm squares, every angle a right angle. But the base is one long, shallow arc, so it rocks, and everywhere your body touches is soft: a channel under each thigh, and a cupped back with a swell for the small of your back.</p>
       <dl class="spec">
