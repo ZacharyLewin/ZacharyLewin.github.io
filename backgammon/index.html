@@ -41,6 +41,26 @@ h1{font-size:clamp(32px,5vw,48px);line-height:1.08;margin:.3em 0 .35em}
 .specs table{width:100%;border-collapse:collapse}.specs td{border-top:1px solid var(--rule);padding:8px 4px}.specs td:first-child{color:var(--muted);width:24%;vertical-align:top}
 footer{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center;padding:30px 20px 60px}
 @media(max-width:900px){.stage{grid-template-columns:1fr}.notes{max-height:none}}
+/* pin-board of the earlier sketches */
+.board{max-width:1180px;margin:40px auto 0;padding:0 20px}
+.board h2{margin-bottom:6px}
+.board .lead{font-family:var(--serif);font-size:17px;color:var(--ink2);max-width:700px;margin:0 0 18px}
+.cork{position:relative;background:#c9a877 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .25 0 0 0 .28 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");border:14px solid #5a3b1e;box-shadow:inset 0 0 40px rgba(0,0,0,.25),0 8px 24px rgba(0,0,0,.18);padding:34px 28px 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:34px 26px;align-items:start}
+.cork .card{display:block;margin:0;font-size:12px;position:relative;background:#fff;padding:8px 8px 10px;box-shadow:0 6px 14px rgba(0,0,0,.28);transform:rotate(var(--r));transition:transform .25s ease,box-shadow .25s ease;cursor:zoom-in}
+.card:hover{transform:rotate(0) scale(1.04);box-shadow:0 14px 28px rgba(0,0,0,.32);z-index:2}
+.cork .card img{display:block;width:100%;height:auto;aspect-ratio:var(--ar,3/5);object-fit:cover;background:#f3efe6}
+.card:before{content:"";position:absolute;top:-9px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff6b6b,#b4462b 60%,#7a2a18);box-shadow:0 3px 4px rgba(0,0,0,.4);z-index:3}
+.card:nth-child(3n):before{background:radial-gradient(circle at 35% 35%,#8ec5ff,#2d6cb3 60%,#1a3f6b)}
+.card:nth-child(3n+2):before{background:radial-gradient(circle at 35% 35%,#ffe27a,#d9a21b 60%,#8a6410)}
+.card figcaption{font-family:var(--sans);font-size:12px;line-height:1.4;color:var(--ink2);margin-top:8px}
+.card figcaption b{display:block;color:var(--ink);font-size:12.5px}
+.card figcaption .when{color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;display:block;margin-bottom:2px}
+.card.wide{grid-column:span 2}
+@media(max-width:900px){.cork{grid-template-columns:repeat(2,1fr);gap:28px 18px;padding:26px 18px 20px;border-width:10px}.card.wide{grid-column:span 2}}
+@media(max-width:480px){.cork{grid-template-columns:1fr 1fr;gap:24px 12px;padding:22px 12px 16px}}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:99;cursor:zoom-out}
+.lb.on{display:flex}.lb img{max-width:94vw;max-height:94vh;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+
 </style>
 </head>
 <body><a id="zdl-back" href="../" style="transition:opacity .25s,transform .25s;position:fixed;top:12px;left:12px;z-index:9999;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.06em;background:#111;color:#fff;text-decoration:none;padding:7px 10px;line-height:1;box-shadow:0 1px 6px rgba(0,0,0,.18)">ZDL <span style="font-weight:500;opacity:.75">· All work</span></a>
@@ -77,6 +97,22 @@ footer{font-family:var(--sans);font-size:13px;color:var(--muted);text-align:cent
 <div class="specs">
   <table id="spectable"></table>
 </div>
+
+<section class="board" id="sketches">
+  <h2>From the notebooks</h2>
+  <p class="lead">The board didn’t start out in concrete. It started as an ashtray. Every version it went through, pinned up in order.</p>
+  <div class="cork">
+    <figure class="card" style="--r:-2.2deg;--ar:688/1200"><img src="../assets/nb-bg/01-ashtray-board-t.jpg" data-full="../assets/nb-bg/01-ashtray-board.jpg" alt="Notebook page: top-down sketch of a backgammon board with an ashtray circled at each player’s right-hand corner" loading="lazy"><figcaption><span class="when">Notebook 2 · Autumn 2024</span><b>The backgammon ashtray board</b>The first idea. Ashtrays on each player’s right-hand side, which double as handles when the board is closed.</figcaption></figure>
+    <figure class="card" style="--r:1.6deg;--ar:753/1200"><img src="../assets/nb-bg/02-closed-handles-t.jpg" data-full="../assets/nb-bg/02-closed-handles.jpg" alt="Notebook page: the same board drawn folded shut, with the ashtrays forming carry handles" loading="lazy"><figcaption><span class="when">Notebook 2</span><b>Closed, with handles</b>The board shut like a case; the corner ashtrays become the handles.</figcaption></figure>
+    <figure class="card" style="--r:-1.2deg;--ar:714/1200"><img src="../assets/nb-bg/03-fold-in-t.jpg" data-full="../assets/nb-bg/03-fold-in.jpg" alt="Notebook page: a board whose long side compartments fold in on hinges to cover it, with checkers and dice inside" loading="lazy"><figcaption><span class="when">Notebook 2</span><b>Fold-in compartments</b>Side compartments on hinges, ashtray and coaster on the lids. “Dark wood board with white and black triangles.” A friend’s verdict: “But I smoke with my left hand.”</figcaption></figure>
+    <figure class="card" style="--r:2.4deg;--ar:733/1200"><img src="../assets/nb-bg/06-felt-golf-t.jpg" data-full="../assets/nb-bg/06-felt-golf.jpg" alt="Notebook page: a backgammon board drawn as a golf course, with a putting green, bunker and fairway" loading="lazy"><figcaption><span class="when">Notebook 3 · Winter 2024</span><b>Felt backgammon golf set</b>A detour: a little club to move the pieces, a hole on the felt, checkers made of golf-ball material.</figcaption></figure>
+    <figure class="card" style="--r:1.1deg;--ar:635/1200"><img src="../assets/nb-bg/04-playdate-text-t.jpg" data-full="../assets/nb-bg/04-playdate-text.jpg" alt="Notebook page: notes for the Adult’s Playdate Bag, a shoulder bag that unzips into a backgammon set" loading="lazy"><figcaption><span class="when">Notebook 2</span><b>The Adult’s Playdate Bag</b>A shoulder bag that unzips flat into a backgammon set, with a collapsible teapot and two cups.</figcaption></figure>
+    <figure class="card" style="--r:-1.8deg;--ar:754/1200"><img src="../assets/nb-bg/05-playdate-sketch-t.jpg" data-full="../assets/nb-bg/05-playdate-sketch.jpg" alt="Notebook page: sketches of the Playdate Bag closed, its zip running round three sides, and open as a board" loading="lazy"><figcaption><span class="when">Notebook 2</span><b>Playdate Bag, drawn</b>Front pocket, the zip running round three sides, and the bag open as a board.</figcaption></figure>
+    <figure class="card wide" style="--r:-0.8deg;--ar:1700/1384"><img src="../assets/nb-bg/07-matchbox-t.jpg" data-full="../assets/nb-bg/07-matchbox.jpg" alt="Notebook spread: the Matchbox Backgammon Board, a scaled-up matchbox that slides open to reveal the board, with a case that flips over into a stand" loading="lazy"><figcaption><span class="when">2026</span><b>The Matchbox Backgammon Board</b>A scaled-up matchbox: the board slides out of its sleeve, the side keeps a working striker strip, and the case flips over to become a stand. The last stop before concrete.</figcaption></figure>
+  </div>
+</section>
+<div class="lb" id="lb"><img alt=""></div>
+
 <footer>Zachary D. Lewin · Modelled in three.js from the board’s working dimensions. Body measurements: CDC biacromial survey data; NCSU Ergonomics Center anthropometric tables.</footer>
 
 <script>
@@ -4686,5 +4722,10 @@ three/build/three.module.js:
    *)
 */
 </script>
-<script>(function(){var b=document.getElementById("zdl-back");function u(){var h=scrollY>160;b.style.opacity=h?0:1;b.style.pointerEvents=h?"none":"auto";b.style.transform=h?"translateY(-8px)":"none"}addEventListener("scroll",u,{passive:true});u()})();</script></body>
+<script>(function(){var b=document.getElementById("zdl-back");function u(){var h=scrollY>160;b.style.opacity=h?0:1;b.style.pointerEvents=h?"none":"auto";b.style.transform=h?"translateY(-8px)":"none"}addEventListener("scroll",u,{passive:true});u()})();
+// pin-board lightbox
+{const lb=document.getElementById('lb'),im=lb.querySelector('img');
+ document.querySelectorAll('.card img').forEach(i=>i.addEventListener('click',()=>{im.src=i.dataset.full;im.alt=i.alt;lb.classList.add('on')}));
+ lb.addEventListener('click',()=>lb.classList.remove('on'));document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});}
+</script></body>
 </html>
