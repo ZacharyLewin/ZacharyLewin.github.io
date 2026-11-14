@@ -513,7 +513,8 @@ function fitLogo(){document.querySelectorAll('.logo').forEach(l=>{const sp=l.que
 fitLogo();addEventListener('resize',fitLogo);if(document.fonts)document.fonts.ready.then(fitLogo);
 // desktop: header sticks; links fade in once the big section blocks have scrolled past
 {const nw=document.getElementById('navwrap'),menu=document.querySelector('.menu');if(nw&&menu){
-  const check=()=>nw.classList.toggle('past',menu.getBoundingClientRect().top<nw.offsetHeight);check();addEventListener('scroll',check,{passive:true});addEventListener('resize',check);
+  // compare against the page position of the blocks (not the bar's own height, which changes when it shrinks), with a dead zone so it can't flicker
+  let past=false;const check=()=>{const y=menu.getBoundingClientRect().top+scrollY-scrollY;const on=past?y<140:y<90;if(on!==past){past=on;nw.classList.toggle('past',on)}};check();addEventListener('scroll',check,{passive:true});addEventListener('resize',check);
   addEventListener('wheel',()=>cancelAnimationFrame(glideId),{passive:true});addEventListener('touchstart',()=>cancelAnimationFrame(glideId),{passive:true})}}
 function openPanel(id,scroll){
   panels.forEach(p=>p.classList.toggle('show',p.id===id));
