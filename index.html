@@ -266,6 +266,9 @@ nav .links a.on{color:var(--accent)}
 #apps .wk .txt p.links{display:flex;flex-wrap:wrap;gap:18px;font-family:var(--sans);font-size:14px;font-weight:700}
 .wk .links a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent)}.wk .links a:hover{color:var(--accent)}
 @media(max-width:600px){.pgroup{font-size:27px;margin:36px 0 14px;padding-top:22px}}
+@media(min-width:601px){#apps .wk:not(.personal) .txt>p:not(.meta){font-size:19px;line-height:1.55;margin-bottom:18px}
+.paywrap>figure:first-child{width:78%}.paywrap .payvid{width:88%}}
+@media(max-width:600px){#apps .wk:not(.personal) .txt>p:not(.meta){font-size:17.5px}}
 .pair.cc a:hover img{transform:translateY(-3px)}
 </style>
 </head>
@@ -472,7 +475,7 @@ nav .links a.on{color:var(--accent)}
   </div>
   <h2 class="pgroup">Personal projects</h2>
   <div class="work">
-    <article class="wk">
+    <article class="wk personal">
       <figure class="marty"><div class="bar"><i></i><i></i><i></i><span>Marty AI</span></div><video src="assets/marty-demo.mp4" poster="assets/marty-demo-poster.jpg" muted loop playsinline preload="none" aria-label="Screen recording of Marty AI answering student questions"></video><figcaption>Marty answering questions, recorded April 2026</figcaption></figure>
       <div class="txt"><p class="meta">Project · 2025</p><h3>Marty AI</h3><p>Marty started because I needed help. In 2025 I ran into problems with my study permit and found myself lost in McGill’s internal systems, unsure who to ask or what was due when. So I took matters into my own hands and built my own McGill chatbot.</p><p>What began as admin and deadline checks became something bigger: a chatbot dedicated to career opportunities at McGill. It covers career fairs and jobs in Montréal, on and off campus, and how to go after them. I started out needing help, and ended up with a platform where I could create whatever help I needed.</p></div>
     </article>
