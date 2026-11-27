@@ -257,6 +257,15 @@ nav .links a.on{color:var(--accent)}
 .pair.two{grid-template-columns:1fr 1fr;margin-top:14px;align-items:start}
 .pair.two img{aspect-ratio:4/3;object-fit:cover}
 .pair.cc img{box-shadow:none;background:#faf3e7;cursor:pointer;max-height:380px;width:100%;object-fit:contain;transition:transform .3s}
+.pgroup{font-family:var(--serif);font-size:34px;font-weight:400;color:var(--ink);margin:30px 0 20px;padding-top:28px;border-top:1px solid var(--rule)}
+#apps .label+.pgroup{margin-top:10px;padding-top:0;border-top:0}
+.paywrap figure{margin:0}.paywrap img{width:100%;display:block;cursor:zoom-in;background:#f3f1ec;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.paywrap .payvid{margin-top:14px}.paywrap video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#f4f3f0;border:1px solid var(--rule)}
+.paywrap figcaption{font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:8px}
+#apps .wk .txt p.thanks{font-style:italic}
+#apps .wk .txt p.links{display:flex;flex-wrap:wrap;gap:18px;font-family:var(--sans);font-size:14px;font-weight:700}
+.wk .links a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent)}.wk .links a:hover{color:var(--accent)}
+@media(max-width:600px){.pgroup{font-size:27px;margin:36px 0 14px;padding-top:22px}}
 .pair.cc a:hover img{transform:translateY(-3px)}
 </style>
 </head>
@@ -264,7 +273,7 @@ nav .links a.on{color:var(--accent)}
 <div class="wrap">
 <div class="navwrap" id="navwrap"><nav>
   <a class="logo" href="./">ZDL<span><i>Zachary</i><i>D. Lewin</i></span></a>
-  <div class="links"><a href="#about" data-p="about">About</a><a href="#stories" data-p="stories">Stories</a><a href="#apps" data-p="apps">Applications</a><a href="#design" data-p="design">Design</a><a href="#contact" class="tocontact">Contact</a></div>
+  <div class="links"><a href="#about" data-p="about">About</a><a href="#stories" data-p="stories">Stories</a><a href="#apps" data-p="apps">Projects</a><a href="#design" data-p="design">Design</a><a href="#contact" class="tocontact">Contact</a></div>
 </nav></div>
 
 <div class="intro">
@@ -275,14 +284,14 @@ nav .links a.on{color:var(--accent)}
   </div>
   <div class="side">
   <figure class="me"><img src="assets/portrait-hero.jpg" data-full="assets/portrait.jpg" alt="Portrait of Zachary D. Lewin"></figure>
-  <ul class="mnav" aria-label="Sections"><li><a href="#about" data-p="about"><span class="n">01</span>About</a></li><li><a href="#stories" data-p="stories"><span class="n">02</span>Stories</a></li><li><a href="#apps" data-p="apps"><span class="n">03</span>Applications</a></li><li><a href="#design" data-p="design"><span class="n">04</span>Design</a></li><li><a href="#contact" class="tocontact"><span class="n">05</span>Contact</a></li></ul>
+  <ul class="mnav" aria-label="Sections"><li><a href="#about" data-p="about"><span class="n">01</span>About</a></li><li><a href="#stories" data-p="stories"><span class="n">02</span>Stories</a></li><li><a href="#apps" data-p="apps"><span class="n">03</span>Projects</a></li><li><a href="#design" data-p="design"><span class="n">04</span>Design</a></li><li><a href="#contact" class="tocontact"><span class="n">05</span>Contact</a></li></ul>
   </div>
 </div>
 
 <div class="menu" role="tablist" aria-label="Sections">
   <a class="mbtn" href="#about" data-p="about"><span class="n">01</span><span class="t">About</span></a>
   <a class="mbtn" href="#stories" data-p="stories"><span class="n">02</span><span class="t">Stories</span></a>
-  <a class="mbtn" href="#apps" data-p="apps"><span class="n">03</span><span class="t">Applications</span></a>
+  <a class="mbtn" href="#apps" data-p="apps"><span class="n">03</span><span class="t">Projects</span></a>
   <a class="mbtn" href="#design" data-p="design"><span class="n">04</span><span class="t">Designs</span></a>
 </div>
 
@@ -426,17 +435,28 @@ nav .links a.on{color:var(--accent)}
 </section>
 
 <section id="apps" class="panel">
-  <p class="label">Applications</p>
+  <p class="label">Projects</p>
+  <h2 class="pgroup">Apps</h2>
   <div class="work">
+    <article class="wk">
+      <div class="pair one cc"><figure><a href="climbcoach/"><img src="assets/climbcoach-mark.jpg" alt="ClimbCoach illustration: a figure climbing a ladder up a green boulder" loading="lazy"></a></figure></div>
+      <div class="txt"><p class="meta">Founder · In development</p><h3>ClimbCoach</h3><p>A camera on the climbing wall that watches a bouldering attempt, scores it out of 100 and tells you what to work on, each tip pinned to a moment in the replay. Pose tracking and the first metrics work; the learned score is next.</p><a class="btn" href="climbcoach/">See the project →</a></div>
+    </article>
     <article class="wk">
       <div class="sqwrap">
         <figure class="sqphone"><button class="sqp" id="sqp" aria-label="Play the SquashIt! ad full screen, with sound"><video id="sqv" src="assets/squashit-demo.mp4" poster="assets/squashit-demo-poster.jpg" muted loop playsinline preload="metadata"></video><span class="sqgo"><b></b>Tap to watch with sound</span></button><figcaption>The 45-second ad</figcaption></figure>
       </div>
       <div class="txt"><p class="meta">Acting CEO · In beta</p><h3>SquashIt!</h3><p>This app is a social dispute settlement platform. Formed out of the annoyance of constant online debate and group chat squabbling, we wanted a place where decisions and judgement rule. We wanted a place to finally SQUASH IT!</p><p>Post your side, strangers vote, and the dispute is squashed when the verdict is clear. Post solo, or invite the other person to argue back in a double dispute. I led a team of designers and engineers through the first build and beta testing.</p></div>
     </article>
+  </div>
+  <h2 class="pgroup">Hackathon projects</h2>
+  <div class="work">
     <article class="wk">
-      <div class="pair one cc"><figure><a href="climbcoach/"><img src="assets/climbcoach-mark.jpg" alt="ClimbCoach illustration: a figure climbing a ladder up a green boulder" loading="lazy"></a></figure></div>
-      <div class="txt"><p class="meta">Founder · In development</p><h3>ClimbCoach</h3><p>A camera on the climbing wall that watches a bouldering attempt, scores it out of 100 and tells you what to work on, each tip pinned to a moment in the replay. Pose tracking and the first metrics work; the learned score is next.</p><a class="btn" href="climbcoach/">See the project →</a></div>
+      <div class="paywrap">
+        <figure><img src="assets/payables-winners.jpg" data-full="assets/payables-winners.jpg" alt="Team Terracotta on stage at CodeJam 16, holding rubber ducks in front of the first-place slide" loading="lazy"><figcaption>First place, on stage at CodeJam 16</figcaption></figure>
+        <figure class="payvid"><video src="assets/payables-demo.mp4" poster="assets/payables-demo-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Payables title card: A Clear View of Every Dollar’s Journey, with an invoice moving from inbox to paid"></video><figcaption>From inbox to paid</figcaption></figure>
+      </div>
+      <div class="txt"><p class="meta">CodeJam 16 · 1st of 150 · Brim Financial Fintech Challenge</p><h3>Payables</h3><p>Every invoice is a story. It arrives in an inbox, gets read, gets checked, gets approved and then gets paid. But like most stories, there tend to be twists and turns: a bank account has changed, an invoice has been sent twice, or the person who approves it is on leave this week.</p><p>Payables tells that story. Every step of the invoice, in the order that it happened, and it cannot be silently rewritten. We built it as an automated payments system for Brim Financial’s fintech challenge at CodeJam 16, and came first out of 150 teams.</p><p class="links"><a href="https://mcgill-codejam-16.devpost.com/" target="_blank" rel="noopener">CodeJam 16 ↗</a><a href="https://brimfinancial.com/" target="_blank" rel="noopener">Brim Financial ↗</a></p></div>
     </article>
     <article class="wk">
       <div class="bloomwrap">
@@ -449,6 +469,9 @@ nav .links a.on{color:var(--accent)}
       <div class="txt"><p class="meta">McHacks 13 · 3rd of 160 · two prizes</p><h3>Bloomscroll</h3><p>Design engineer on an app that lets students upload their own course material and learn it by scrolling. Each course grows into a knowledge tree as you study. The pitch, from my notes: “Let’s put an end to the doom, and let’s begin to Bloom.”</p>
       </div>
     </article>
+  </div>
+  <h2 class="pgroup">Personal projects</h2>
+  <div class="work">
     <article class="wk">
       <figure class="marty"><div class="bar"><i></i><i></i><i></i><span>Marty AI</span></div><video src="assets/marty-demo.mp4" poster="assets/marty-demo-poster.jpg" muted loop playsinline preload="none" aria-label="Screen recording of Marty AI answering student questions"></video><figcaption>Marty answering questions, recorded April 2026</figcaption></figure>
       <div class="txt"><p class="meta">Project · 2025</p><h3>Marty AI</h3><p>Marty started because I needed help. In 2025 I ran into problems with my study permit and found myself lost in McGill’s internal systems, unsure who to ask or what was due when. So I took matters into my own hands and built my own McGill chatbot.</p><p>What began as admin and deadline checks became something bigger: a chatbot dedicated to career opportunities at McGill. It covers career fairs and jobs in Montréal, on and off campus, and how to go after them. I started out needing help, and ended up with a platform where I could create whatever help I needed.</p></div>
@@ -461,7 +484,7 @@ nav .links a.on{color:var(--accent)}
   <div class="about">
     <div>
       <p>I was born and raised in London, the eldest of three, to parents originally from Belgium and Germany. At Highgate School I ran track and field, played football and took A Levels in Mathematics, Design &amp; Engineering and Classics, graduating in 2023. Now I study Mathematics and Philosophy at McGill.</p>
-      <p>I am passionate about creating tools that help people navigate a more complex world, and that connect them to each other. Alongside my degree I write for Interf(ai)ce, McGill’s journal on AI and society, participate in hackathons (Bloomscroll placed 3rd of 160 at McHacks 13), and work part time, all while building SquashIt!, a microaggressions social dispute platform, coming to the App Store soon.</p>
+      <p>I am passionate about creating tools that help people navigate a more complex world, and that connect them to each other. Alongside my degree I write for Interf(ai)ce, McGill’s journal on AI and society, participate in hackathons (Payables won first place in the Brim Financial Fintech Challenge at CodeJam 16, and Bloomscroll placed 3rd of 160 at McHacks 13), and work part time, all while building SquashIt!, a microaggressions social dispute platform, coming to the App Store soon.</p>
       <p>I want to create, I love to build, and I hope to connect with other people.</p>
       <p>Away from the desk I’m on a wall, a track or a mountain: competitive bouldering in Montréal, hurdles and pole vault at school, Kilimanjaro in 2023, the Zugspitze before that.</p>
       <div class="outside">
@@ -492,7 +515,7 @@ nav .links a.on{color:var(--accent)}
 <div class="mbar" id="mbar" aria-hidden="true">
   <a class="logo" href="./">ZDL<span><i>Zachary</i><i>D. Lewin</i></span></a>
   <button class="mtog" id="mtog" aria-expanded="false" aria-controls="mdrop">Menu</button>
-  <ul class="mdrop" id="mdrop"><li><a href="#about" data-p="about"><span class="n">01</span>About</a></li><li><a href="#stories" data-p="stories"><span class="n">02</span>Stories</a></li><li><a href="#apps" data-p="apps"><span class="n">03</span>Applications</a></li><li><a href="#design" data-p="design"><span class="n">04</span>Design</a></li><li><a href="#contact" class="tocontact"><span class="n">05</span>Contact</a></li></ul>
+  <ul class="mdrop" id="mdrop"><li><a href="#about" data-p="about"><span class="n">01</span>About</a></li><li><a href="#stories" data-p="stories"><span class="n">02</span>Stories</a></li><li><a href="#apps" data-p="apps"><span class="n">03</span>Projects</a></li><li><a href="#design" data-p="design"><span class="n">04</span>Design</a></li><li><a href="#contact" class="tocontact"><span class="n">05</span>Contact</a></li></ul>
 </div>
 <div class="lb" id="lb"><img alt=""></div>
 <script>
@@ -555,7 +578,7 @@ document.querySelectorAll('.thumbs:not(.rthumbs) button').forEach(b=>b.addEventL
 }));
 // play CAD videos only while on screen
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else v.pause()}),{threshold:.35});
-document.querySelectorAll('.obj video,.photos video,.marty video').forEach(v=>io.observe(v));
+document.querySelectorAll('.obj video,.photos video,.marty video,.payvid video').forEach(v=>io.observe(v));
 
 // SquashIt demo: silent loop in the phone; tap for full screen with sound
 (()=>{const b=document.getElementById('sqp'),v=document.getElementById('sqv');if(!b)return;
